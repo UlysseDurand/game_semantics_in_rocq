@@ -1,14 +1,16 @@
-# This file is a template, and might need editing before it works on your project.
-# Full project: https://gitlab.com/pages/plain-html
+# The Docker image that will be used to build your app
+image: node:lts
 pages:
-  stage: deploy
   script:
-  - cp codecoq/html/toc.html codecoq/html/index.html
-  - mkdir .public
-  - cp codecoq/html/* -r .public
-  - mv .public public
+    - cp codecoq/html/toc.html codecoq/html/index.html
+    - mkdir .public
+    - cp codecoq/html/* -r .public
+    - mv .public public
   artifacts:
     paths:
-    - public
-  only:
-  - master
+      # The folder that contains the files to be exposed at the Page URL
+      - public
+  rules:
+    # This ensures that only pushes to the default branch will trigger
+    # a pages deploy
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
