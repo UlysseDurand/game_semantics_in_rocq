@@ -65,7 +65,7 @@ Inductive prefixOOO `{J:Game} `{G:Game} `{H:Game} :
       prefixOOO nilOOO s
 
   | prefOOO_C : forall a m n s s',
-    prefixOPP s s' ->
+    prefixOPP s s' -> (* m=m' -> n=n' -> *)
       prefixOOO (consOOO_C a m n s) (consOOO_C a m n s')
 
   | prefOOO_A : forall a m n s s',
@@ -96,6 +96,7 @@ Scheme prefixOOO_induc := Induction for prefixOOO Sort Prop
 with prefixOPP_induc := Induction for prefixOPP Sort Prop
 with prefixPOP_induc := Induction for prefixPOP Sort Prop.
 
+Hint Resolve nil_prefOOO.
 
 
 (**

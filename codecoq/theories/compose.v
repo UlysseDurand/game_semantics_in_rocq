@@ -82,38 +82,66 @@ Lemma prefixOOO_restriction_lm `{J:Game} `{G:Game} `{H:Game}:
   forall (u v:@OOO_int J G H),
   prefixOOO u v -> prefixO2 (restriction_lm_OOO u) (restriction_lm_OOO v).
 Proof.
-Admitted.
+  revert J G H.
+  apply prefixOOO_induc with
+    (fun J G H u v e => prefixO2 (restriction_lm_OPP u) (restriction_lm_OPP v))
+    (fun J G H u v e => prefixP2 (restriction_lm_POP u) (restriction_lm_POP v));
+  intros J G H; intros;simpl;try constructor;auto.
+Qed.
 
 Lemma prefixOOO_restriction_mr `{J:Game} `{G:Game} `{H:Game}:
   forall (u v:@OOO_int J G H),
   prefixOOO u v -> prefixO2 (restriction_mr_OOO u) (restriction_mr_OOO v).
 Proof.
-Admitted.
+  revert J G H.
+  apply prefixOOO_induc with
+    (fun J G H u v e => prefixP2 (restriction_mr_OPP u) (restriction_mr_OPP v))
+    (fun J G H u v e => prefixO2 (restriction_mr_POP u) (restriction_mr_POP v));
+  intros J G H; intros;simpl;try constructor;auto.
+Qed.
 
 Lemma prefixOPP_restriction_lm `{J:Game} `{G:Game} `{H:Game}:
   forall (u v:@OPP_int J G H),
   prefixOPP u v -> prefixO2 (restriction_lm_OPP u) (restriction_lm_OPP v).
 Proof.
-Admitted.
+  revert J G H.
+  apply prefixOPP_induc with
+    (fun J G H u v e => prefixO2 (restriction_lm_OOO u) (restriction_lm_OOO v))
+    (fun J G H u v e => prefixP2 (restriction_lm_POP u) (restriction_lm_POP v));
+  intros J G H; intros;simpl;try constructor;auto.
+Qed.
 
 Lemma prefixOPP_restriction_mr `{J:Game} `{G:Game} `{H:Game}:
   forall (u v:@OPP_int J G H),
   prefixOPP u v -> prefixP2 (restriction_mr_OPP u) (restriction_mr_OPP v).
 Proof.
-Admitted.
-
+  revert J G H.
+  apply prefixOPP_induc with
+    (fun J G H u v e => prefixO2 (restriction_mr_OOO u) (restriction_mr_OOO v))
+    (fun J G H u v e => prefixO2 (restriction_mr_POP u) (restriction_mr_POP v));
+    intros J G H; intros;simpl;try constructor;auto.
+Qed.
 
 Lemma prefixPOP_restriction_lm `{J:Game} `{G:Game} `{H:Game}:
   forall (u v:@POP_int J G H),
   prefixPOP u v -> prefixP2 (restriction_lm_POP u) (restriction_lm_POP v).
 Proof.
-Admitted.
-
+  revert J G H.
+  apply prefixPOP_induc with
+    (fun J G H u v e => prefixO2 (restriction_lm_OOO u) (restriction_lm_OOO v))
+    (fun J G H u v e => prefixO2 (restriction_lm_OPP u) (restriction_lm_OPP v));
+  intros J G H; intros;simpl;try constructor;auto.
+Qed.
 Lemma prefixPOP_restriction_mr `{J:Game} `{G:Game} `{H:Game}:
   forall (u v:@POP_int J G H),
   prefixPOP u v -> prefixO2 (restriction_mr_POP u) (restriction_mr_POP v).
 Proof.
-Admitted.
+  revert J G H.
+  apply prefixPOP_induc with
+    (fun J G H u v e => prefixO2 (restriction_mr_OOO u) (restriction_mr_OOO v))
+    (fun J G H u v e => prefixP2 (restriction_mr_OPP u) (restriction_mr_OPP v));
+    intros J G H; intros;simpl;try constructor;auto.
+Qed.
 
 
 Lemma prefixe_donc_paralleleOO `{J:Game} `{G:Game} `{H:Game} :
