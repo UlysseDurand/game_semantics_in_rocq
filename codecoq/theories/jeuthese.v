@@ -79,7 +79,7 @@ with  prefixP2 `{J:Game} `{G:Game} :
 Scheme prefixO2_induc := Induction for prefixO2 Sort Prop
 with prefixP2_induc := Induction for prefixP2 Sort Prop.
 
-Hint Resolve nil_prefO2.
+
 
 Definition prefixO2_closed `{J:Game} `{G:Game} (Pos : (@O_play2 J G) -> Prop) :=
   forall (s s' : (@O_play2 J G)), Pos s' -> (@prefixO2 J G) s s' -> Pos s.
@@ -127,8 +127,6 @@ Inductive coherentO2 `{J : Game} `{G : Game} : (@O_play2 J G) -> (@O_play2 J G) 
     @coherentO2 J (residual G a) s s' ->
       @coherentP2 J G (@consP_r J G a m n s) (@consP_r J G a m n s')
 .
-
-Hint Resolve nil_cohO2_l nil_cohO2_r.
 
 Scheme coherentO2_induc := Induction for coherentO2 Sort Prop
 with coherentP2_induc := Induction for coherentP2 Sort Prop.
