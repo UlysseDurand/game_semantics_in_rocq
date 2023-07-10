@@ -237,7 +237,18 @@ Proof.
     exists nilOOO. split. reflexivity. exact (nil_prefOOO u').
   - intros J' H' a m n t s2' prefts2' HI G' u' equs2'.
     specialize (HI G').
-    admit.
+    destruct HI as (HI1,HI2).
+    assert (exists u'', s2' = restriction_lr_POP u'' /\ u' = consOOO_A a m n u'').
+    destruct u'.
+    + inversion equs2'.
+    + inversion equs2'.
+    + simpl in equs2'. admit.
+    destruct H0 as (u'',(s2'eq,u'eq)). destruct equs2'.
+    destruct (HI2 u'' s2'eq) as (v',(v'H1,v'H2)).
+    exists (consOOO_A a m n v').
+    split.
+      + simpl. f_equal. apply v'H1.
+      + simpl. rewrite u'eq. apply prefOOO_A. exact v'H2.
   - intros J' H' a m n t s2' prefts2' HI G' u' equs2'.
     specialize (HI G').
     admit.
