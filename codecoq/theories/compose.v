@@ -179,7 +179,7 @@ Proof.
     induction v; [assumption| inversion vprefnil|inversion vprefnil].
   - intros J0 G0 H0 a m n s HI v sigma tau.
     intros consas_parall vprefconsas.
-    induction consas_parall;eapply respecte_stratsOO.
+    induction consas_parall. eapply respecte_stratsOO.
     + eapply SO_closed;[apply s0|]. now apply prefixOOO_restriction_lm.
     + eapply SO_closed;[apply s1|]. now apply prefixOOO_restriction_mr.
   - intros J0 G0 H0 a m n s HI v sigma tau.
@@ -211,26 +211,46 @@ Qed.
 
 
 Lemma compose_prefix_closed `{J:Game} `{G:Game} `{H:Game} :
-      forall (sigma : @strategy2O J G) (tau : @strategy2O G H) s1 (u:@OOO_int J G H),
-      prefixO2 s1 (restriction_lr_OOO u) -> exists v, ((restriction_lr_OOO v) = s1) /\ (prefixOOO v u).
+      forall (u:@OOO_int J G H) (s1:@O_play2 J H) s2,
+      prefixO2 s1 s2 ->
+      s2 = restriction_lr_OOO u ->
+        exists v, ((restriction_lr_OOO v) = s1) /\ (prefixOOO v u).
 Proof.
-  intros sigma tau s1 u prefs1urestr.
-  induction u.
-  - 
-  induction prefs1urestr.
-  Check prefixO2_induc.
+  intros u s1 s2 s1prefs2.
   apply (prefixO2_induc
-    (fun J0 G0 H0 o o' prefoo'  =>
-      forall (sigma:@strategy2O J0 G0) (tau:@strategy2O G0 H0),
-        exists(v:@OOO_int), restriction_lr_OOO v = o /\ prefixOOO v o')
-      forall (v:@OOO_int J0 G0 H0)
-        (sigma:@strategy2O J0 G0) (tau: @strategy2O G0 H0),
-        (parallele_stratOO sigma tau) u ->
-        prefixOOO v u ->
-          (parallele_stratOO sigma tau) v
-    )
+  (
+    fun J H s1 s2 s1prefs2 => forall G u,
+    s2=restriction_lr_OOO u ->
+      exists (v:@OOO_int J G H), (restriction_lr_OOO v = s1) /\ (prefixOOO v u)
+  )
+  (
+    fun J H s1 s2 s1prefs2 => forall G,
+    (forall u,
+    s2 = restriction_lr_OPP u ->
+      exists (v:@OPP_int J G H), (restriction_lr_OPP v = s1) /\ (prefixOPP v u)
+    )/\(forall u,
+    s2 = restriction_lr_POP u ->
+      exists (v:@POP_int J G H), (restriction_lr_POP v = s1) /\ (prefixPOP v u)
+  ))
   ).
+  - intros J' H' s2' G' u' s'equ'.
+    exists nilOOO. split. reflexivity. exact (nil_prefOOO u').
+  - intros J' H' a m n t s2' prefts2' HI G' u' equs2'.
+    specialize (HI G').
+    admit.
+  - intros J' H' a m n t s2' prefts2' HI G' u' equs2'.
+    specialize (HI G').
+    admit.
+  - intros J' H' a m n t s2' prefts2' HI G'.
+    specialize (HI G').
+    admit.
+  - intros J' H' a m n t s2' prefts2' HI G'.
+    specialize (HI G').
+    admit.
+  - exact s1prefs2.
 Admitted.
+
+
 
 Lemma prefix_closedOO `{J:Game} `{G:Game} `{H:Game}
   (sigma : @strategy2O J G) (tau : @strategy2O G H) :
@@ -239,11 +259,20 @@ Lemma prefix_closedOO `{J:Game} `{G:Game} `{H:Game}
 Proof.
   intros s1 s2 (u,u_parall) s1prefs2.
   assert (exists v : OOO_int, restriction_lr_OOO v = s1 /\ prefixOOO v u).
-  apply (@compose_prefix_closed J G H sigma tau s1 u); apply s1prefs2.
+  apply (@compose_prefix_closed J G H u s1 (restriction_lr_OOO u) s1prefs2).
+  reflexivity.
   destruct H0 as (v,(restrvs1,prefvu)).
   rewrite <- restrvs1.
   exact (restr_temoinsOO sigma tau v (prefixe_donc_paralleleOO u v sigma tau u_parall prefvu)).
 Qed.
+
+Lemma coherentOO `{J:Game} `{G:Game} `{H:Game}
+  (sigma : @strategy2O J G) (tau : @strategy2O G H) s s' :
+  partiecomposeOO sigma tau s ->
+  partiecomposeOO sigma tau s' ->
+  coherentO2 s s'.
+Admitted.
+
 
 Program Definition composeOO `{J:Game} `{G:Game} `{H:Game}
   (sigma : @strategy2O J G) (tau : @strategy2O G H) :
@@ -253,19 +282,4 @@ Program Definition composeOO `{J:Game} `{G:Game} `{H:Game}
     H
     (partiecomposeOO sigma tau)
     (prefix_closedOO sigma tau)
-    _.
-
-
-Next Obligation.
-  intros s1 s2 (u,u_parall) s1prefs2.
-  assert (exists (v : OOO_int), parallele_strat sigma tau v /\ s1 = restriction_lr_OOO v ).
-  -
-
-
-    admit.
-  - destruct H0 as (v, (v_parall,v_restr_eq_s1)).
-    rewrite v_restr_eq_s1.
-    exact (restr_temoins sigma tau v v_parall).
-Admitted.
-
-Next Obligation.
+    (@coherentOO J G H sigma tau).
