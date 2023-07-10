@@ -210,6 +210,16 @@ Proof.
 Qed.
 
 
+
+
+Set Keep Proof Equalities.
+
+Ltac inv_with_eq:=
+  match goal with
+  | [H: existT ?P ?a ?m = existT ?P ?a ?n |- _ ] =>
+      apply Eqdep.EqdepTheory.inj_pair2 in H;subst
+  end.
+
 Lemma compose_prefix_closed `{J:Game} `{G:Game} `{H:Game} :
       forall (u:@OOO_int J G H) (s1:@O_play2 J H) s2,
       prefixO2 s1 s2 ->
@@ -225,39 +235,47 @@ Proof.
   )
   (
     fun J H s1 s2 s1prefs2 => forall G,
-    (forall u,
-    s2 = restriction_lr_OPP u ->
-      exists (v:@OPP_int J G H), (restriction_lr_OPP v = s1) /\ (prefixOPP v u)
-    )/\(forall u,
-    s2 = restriction_lr_POP u ->
+    (forall u, s2 = restriction_lr_OPP u ->
+     exists (v:@OPP_int J G H), (restriction_lr_OPP v = s1) /\ (prefixOPP v u))
+  /\ (forall u,  s2 = restriction_lr_POP u ->
       exists (v:@POP_int J G H), (restriction_lr_POP v = s1) /\ (prefixPOP v u)
-  ))
-  ).
-  - intros J' H' s2' G' u' s'equ'.
-    exists nilOOO. split. reflexivity. exact (nil_prefOOO u').
-  - intros J' H' a m n t s2' prefts2' HI G' u' equs2'.
-    specialize (HI G').
-    destruct HI as (HI1,HI2).
-    assert (exists u'', s2' = restriction_lr_POP u'' /\ u' = consOOO_A a m n u'').
-    destruct u'.
-    + inversion equs2'.
-    + inversion equs2'.
-    + simpl in equs2'. admit.
-    destruct H0 as (u'',(s2'eq,u'eq)). destruct equs2'.
-    destruct (HI2 u'' s2'eq) as (v',(v'H1,v'H2)).
-    exists (consOOO_A a m n v').
-    split.
-      + simpl. f_equal. apply v'H1.
-      + simpl. rewrite u'eq. apply prefOOO_A. exact v'H2.
-  - intros J' H' a m n t s2' prefts2' HI G' u' equs2'.
-    specialize (HI G').
-    admit.
-  - intros J' H' a m n t s2' prefts2' HI G'.
-    specialize (HI G').
-    admit.
-  - intros J' H' a m n t s2' prefts2' HI G'.
-    specialize (HI G').
-    admit.
+  )))
+  ;
+    intros;try split;intros; try (specialize (H0 G1); destruct H0 as (HI1,HI2)).
+  - exists nilOOO;split;auto.
+      
+  (* Une version un peu dépliée, mais tout est dans la tactique inv_with_eq définie plus 
+       ainsi que l'utilisation de l'option Set Keep Proof Equalities. *)
+  - assert (Hu:exists u', s' = restriction_lr_POP u' /\ u0 = consOOO_A a m n u').
+    +  destruct u0;simpl in H1;inversion H1;subst;
+         repeat inv_with_eq;
+         try (eexists; split; reflexivity). 
+    + destruct Hu as (u',(s2'eq,u'eq)). destruct H1.
+      destruct (HI2 u' s2'eq) as (v',(v'H1,v'H2)).
+      exists (consOOO_A a m n v').
+      split.
+      * simpl. f_equal. apply v'H1.
+      * simpl. rewrite u'eq. apply prefOOO_A. exact v'H2.
+
+  (* Une version plus efficace, sans le assert mais qui fait pareil. *)        
+  - destruct u0;simpl in H1;inversion H1;subst.
+    repeat inv_with_eq.
+    destruct (HI1 o eq_refl) as (v',(v'H1,v'H2)).
+    exists (consOOO_C c m0 n0 v').
+    split;simpl;[now rewrite v'H1| now constructor].
+    
+  - admit.
+  - admit.
+    
+  - assert (exists u',  u0 = consOPP_C a m p u'). 
+    admit. (* Mais c'est pas très vrai, ça peut être en profondeur... *)
+    destruct H2 as (u',Hu');subst.
+    simpl in H1. inversion H1.
+     destruct (H0  _ u') as (v,(Hv,Pv));trivial;
+     inv_with_eq;trivial.
+    exists (consOPP_C a m p v);
+      split;simpl;[reflexivity| now constructor].
+  - admit.
   - exact s1prefs2.
 Admitted.
 
