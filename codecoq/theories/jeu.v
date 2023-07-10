@@ -104,8 +104,9 @@ Definition sumES (J G : Game) :=
   sum J.(ES).(A) G.(ES).(A).
 
 Definition ssEnsSumES (J G : Game) :=
-      (fun x => (match x with |inl a => J.(ES).(B) a |inr b => G.(ES).(B) b end)).
-
+      (fun x =>
+         (match x with |inl a => J.(ES).(B) a |inr b => G.(ES).(B) b end)
+      ).
 
 Definition ordSumES (J G : Game) :=
       (
@@ -129,6 +130,15 @@ Definition conflictSumES (J G : Game) :=
 
 
 
+Program Definition ES_tenseur :
+  forall (J G :Game), EventStructure:=
+  fun J G =>
+    @Build_EventStructure
+      (sumES J G)
+      (ssEnsSumES J G)
+      (ordSumES J G)
+      (conflictSumES J G)
+      _ _ _ _ _.
 
 Ltac destord J:= destruct J.(ES).(ord_ordonned) as  (?Refl,(?Antisym,?Trans)).
 
@@ -144,16 +154,6 @@ Ltac mysplit :=
   match goal with
   | [ H: _ /\ _ |- _] => destruct H
   end.
-
-Program Definition ES_tenseur :
-  forall (J G :Game), EventStructure:=
-  fun J G =>
-    @Build_EventStructure
-      (sumES J G)
-      (ssEnsSumES J G)
-      (ordSumES J G)
-      (conflictSumES J G)
-      _ _ _ _ _.
 
 Next Obligation.
   repeat split.
@@ -249,5 +249,6 @@ Definition Game_dual (J : Game) : Game :=
 (**
 * Définition d'un jeu thèse
 *)
+
 Definition Game_these (J G : Game) : Game :=
   Game_tenseur (Game_dual J) G.
