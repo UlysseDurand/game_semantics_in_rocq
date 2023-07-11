@@ -215,3 +215,7 @@ with CohPOP `{J:Game} `{G:Game} `{H:Game} :
   | coh_POPeq_A : forall a m n s s',
     CohOOO s s' -> CohPOP (consPOP_A a m n s) (consPOP_A a m n s')
   .
+
+  Scheme CohOOO_induc := Induction for CohOOO Sort Prop
+  with CohOPP_induc := Induction for CohOPP Sort Prop
+  with CohPOP_induc := Induction for CohPOP Sort Prop.

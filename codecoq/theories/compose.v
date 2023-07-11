@@ -278,6 +278,13 @@ Proof.
   exact (restr_temoinsOO sigma tau v (prefixe_donc_paralleleOO u v sigma tau u_parall prefvu)).
 Qed.
 
+Lemma coherentOOO `{J : Game} `{G : Game} `{H:Game} :
+  forall (u v:@OOO_int J G H), CohOOO u v -> coherentO2 (restriction_lr_OOO u) (restriction_lr_OOO v).
+
+Proof.
+  intros u v cohuv.
+  a
+
 Lemma coherentOO `{J:Game} `{G:Game} `{H:Game}
   (sigma : @strategy2O J G) (tau : @strategy2O G H) s s' :
   partiecomposeOO sigma tau s ->
