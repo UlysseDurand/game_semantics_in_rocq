@@ -185,9 +185,9 @@ Inductive CohOOO `{J:Game} `{G:Game} `{H:Game} :
     a <> a' -> CohOOO (consOOO_C a m n s) (consOOO_C a' m' n' s')
 
   | coh_OOOeq_A : forall a m n s s',
-    CohPOP s s' -> CohOOO (consOOO_A a m n s) (consOOO_A a m n s)
+    CohPOP s s' -> CohOOO (consOOO_A a m n s) (consOOO_A a m n s')
   | coh_OOOeq_C : forall a m n s s',
-    CohOPP s s' -> CohOOO (consOOO_C a m n  s) (consOOO_C a m n s)
+    CohOPP s s' -> CohOOO (consOOO_C a m n  s) (consOOO_C a m n s')
 
 with CohOPP `{J:Game} `{G:Game} `{H:Game} :
   (@OPP_int J G H) -> (@OPP_int J G H) -> Prop :=

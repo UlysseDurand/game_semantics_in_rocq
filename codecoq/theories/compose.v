@@ -235,7 +235,7 @@ Proof.
   ( fun J G H u => forall (s1:P_play2) (Pref:prefixP2 s1 (restriction_lr_POP u)),
       exists (v:@POP_int J G H), (restriction_lr_POP v = s1) /\ (prefixPOP v u) )
         );intros;inversion Pref;subst;repeat inv_with_eq;
-  try (now exists nilOOO;split;auto).
+  try (now exists nilOOO;split;auto;now constructor).
   - destruct (H0 s0 H3) as [v [Hv Pv]].
     exists (consOOO_C c m n v);split;simpl;[now f_equal|now constructor].
   - destruct (H0 s0 H3) as [v [Hv Pv]].
@@ -274,7 +274,21 @@ Lemma coherentOOO `{J : Game} `{G : Game} `{H:Game} :
 
 Proof.
   intros u v cohuv.
-  a
+  apply (CohOOO_induc
+    (fun J0 G0 H0 u0 v0 u0prev0 =>
+      coherentO2 (restriction_lr_OOO u0) (restriction_lr_OOO v0))
+    (fun J0 G0 H0 u0 v0 u0prev0 =>
+      coherentP2 (restriction_lr_OPP u0) (restriction_lr_OPP v0))
+    (fun J0 G0 H0 u0 v0 u0prev0 =>
+      coherentP2 (restriction_lr_POP u0) (restriction_lr_POP v0))
+  );intros;simpl.
+  - constructor.
+  - constructor.
+  - constructor. assumption.
+  - constructor. assumption.
+  - constructor. assumption.
+
+    apply (cons_cohO2_eq_l a (restriction_lr_POP s) (restriction_lr_POP s) m n).
 
 Lemma coherentOO `{J:Game} `{G:Game} `{H:Game}
   (sigma : @strategy2O J G) (tau : @strategy2O G H) s s' :
