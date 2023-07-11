@@ -220,64 +220,40 @@ Ltac inv_with_eq:=
       apply Eqdep.EqdepTheory.inj_pair2 in H;subst
   end.
 
+
 Lemma compose_prefix_closed `{J:Game} `{G:Game} `{H:Game} :
-      forall (u:@OOO_int J G H) (s1:@O_play2 J H) s2,
-      prefixO2 s1 s2 ->
-      s2 = restriction_lr_OOO u ->
+      forall (u:@OOO_int J G H) (s1:@O_play2 J H) ,
+      prefixO2 s1 (restriction_lr_OOO u) ->
         exists v, ((restriction_lr_OOO v) = s1) /\ (prefixOOO v u).
 Proof.
-  intros u s1 s2 s1prefs2.
-  apply (prefixO2_induc
-  (
-    fun J H s1 s2 s1prefs2 => forall G u,
-    s2=restriction_lr_OOO u ->
-      exists (v:@OOO_int J G H), (restriction_lr_OOO v = s1) /\ (prefixOOO v u)
-  )
-  (
-    fun J H s1 s2 s1prefs2 => forall G,
-    (forall u, s2 = restriction_lr_OPP u ->
-     exists (v:@OPP_int J G H), (restriction_lr_OPP v = s1) /\ (prefixOPP v u))
-  /\ (forall u,  s2 = restriction_lr_POP u ->
-      exists (v:@POP_int J G H), (restriction_lr_POP v = s1) /\ (prefixPOP v u)
-  )))
-  ;
-    intros;try split;intros; try (specialize (H0 G1); destruct H0 as (HI1,HI2)).
-  - exists nilOOO;split;auto.
-      
-  (* Une version un peu dépliée, mais tout est dans la tactique inv_with_eq définie plus 
-       ainsi que l'utilisation de l'option Set Keep Proof Equalities. *)
-  - assert (Hu:exists u', s' = restriction_lr_POP u' /\ u0 = consOOO_A a m n u').
-    +  destruct u0;simpl in H1;inversion H1;subst;
-         repeat inv_with_eq;
-         try (eexists; split; reflexivity). 
-    + destruct Hu as (u',(s2'eq,u'eq)). destruct H1.
-      destruct (HI2 u' s2'eq) as (v',(v'H1,v'H2)).
-      exists (consOOO_A a m n v').
-      split.
-      * simpl. f_equal. apply v'H1.
-      * simpl. rewrite u'eq. apply prefOOO_A. exact v'H2.
+  intros u.
+  apply (OOO_induc
+  ( fun J G H u => forall (s1:O_play2) (Pref:prefixO2 s1 (restriction_lr_OOO u)),
+      exists (v:@OOO_int J G H), (restriction_lr_OOO v = s1) /\ (prefixOOO v u) )
+  ( fun J G H u => forall (s1:P_play2) (Pref:prefixP2 s1 (restriction_lr_OPP u)),
+      exists (v:@OPP_int J G H), (restriction_lr_OPP v = s1) /\ (prefixOPP v u) )
+  ( fun J G H u => forall (s1:P_play2) (Pref:prefixP2 s1 (restriction_lr_POP u)),
+      exists (v:@POP_int J G H), (restriction_lr_POP v = s1) /\ (prefixPOP v u) )
+        );intros;inversion Pref;subst;repeat inv_with_eq;
+  try (now exists nilOOO;split;auto).
+  - destruct (H0 s0 H3) as [v [Hv Pv]].
+    exists (consOOO_C c m n v);split;simpl;[now f_equal|now constructor].
+  - destruct (H0 s0 H3) as [v [Hv Pv]].
+    exists (consOOO_A a m p v);split;simpl;[now f_equal|now constructor].
+  - destruct (H0 s0 H3) as [v [Hv Pv]].
+    exists (consOPP_C c m p v);split;simpl;[now f_equal|now constructor].
+  - simpl in Pref. destruct (H0 _ Pref) as [v [Hv Pv]].
+    exists (consOPP_B b m n v);split;simpl;[now f_equal|now constructor].
+  - simpl in Pref. destruct (H0 _ Pref) as [v [Hv Pv]].
+    exists (consOPP_B b m n v);split;simpl;[now f_equal|now constructor].
+  - simpl in Pref. destruct (H0 _ Pref) as [v [Hv Pv]].
+    exists (consPOP_B b m p v);split;simpl;[now f_equal|now constructor].
+  - simpl in Pref. destruct (H0 _ Pref) as [v [Hv Pv]].
+    exists (consPOP_B b m p v);split;simpl;[now f_equal|now constructor].
+  - destruct (H0 _ H3) as [v [Hv Pv]].
+    exists (consPOP_A a m n v);split;simpl;[now f_equal|now constructor].
+Qed.
 
-  (* Une version plus efficace, sans le assert mais qui fait pareil. *)        
-  - destruct u0;simpl in H1;inversion H1;subst.
-    repeat inv_with_eq.
-    destruct (HI1 o eq_refl) as (v',(v'H1,v'H2)).
-    exists (consOOO_C c m0 n0 v').
-    split;simpl;[now rewrite v'H1| now constructor].
-    
-  - admit.
-  - admit.
-    
-  - assert (exists u',  u0 = consOPP_C a m p u'). 
-    admit. (* Mais c'est pas très vrai, ça peut être en profondeur... *)
-    destruct H2 as (u',Hu');subst.
-    simpl in H1. inversion H1.
-     destruct (H0  _ u') as (v,(Hv,Pv));trivial;
-     inv_with_eq;trivial.
-    exists (consOPP_C a m p v);
-      split;simpl;[reflexivity| now constructor].
-  - admit.
-  - exact s1prefs2.
-Admitted.
 
 
 
@@ -287,10 +263,8 @@ Lemma prefix_closedOO `{J:Game} `{G:Game} `{H:Game}
       (partiecomposeOO sigma tau) s1.
 Proof.
   intros s1 s2 (u,u_parall) s1prefs2.
-  assert (exists v : OOO_int, restriction_lr_OOO v = s1 /\ prefixOOO v u).
-  apply (@compose_prefix_closed J G H u s1 (restriction_lr_OOO u) s1prefs2).
-  reflexivity.
-  destruct H0 as (v,(restrvs1,prefvu)).
+  destruct (@compose_prefix_closed J G H u s1 s1prefs2)
+    as (v,(restrvs1,prefvu)).
   rewrite <- restrvs1.
   exact (restr_temoinsOO sigma tau v (prefixe_donc_paralleleOO u v sigma tau u_parall prefvu)).
 Qed.
