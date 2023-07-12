@@ -281,22 +281,29 @@ Proof.
       coherentP2 (restriction_lr_OPP u0) (restriction_lr_OPP v0))
     (fun J0 G0 H0 u0 v0 u0prev0 =>
       coherentP2 (restriction_lr_POP u0) (restriction_lr_POP v0))
-  );intros;simpl.
-  - constructor.
-  - constructor.
-  - constructor. assumption.
-  - constructor. assumption.
-  - constructor. assumption.
+  );intros;simpl;try (now constructor);assumption.
+Qed.
 
-    apply (cons_cohO2_eq_l a (restriction_lr_POP s) (restriction_lr_POP s) m n).
+Lemma compose_coherent `{J:Game} `{G:Game} `{H:Game} :
+  forall (u v : @OOO_int J G H),
+    coherentO2 (restriction_lm_OOO u) (restriction_lm_OOO v) ->
+    coherentO2 (restriction_mr_OOO u) (restriction_mr_OOO v) ->
+      coherentO2 (restriction_lr_OOO u) (restriction_lr_OOO v).
+Admitted.
+
+
 
 Lemma coherentOO `{J:Game} `{G:Game} `{H:Game}
   (sigma : @strategy2O J G) (tau : @strategy2O G H) s s' :
   partiecomposeOO sigma tau s ->
   partiecomposeOO sigma tau s' ->
   coherentO2 s s'.
-Admitted.
-
+Proof.
+intros [u [Husigma Hutau ]] [v [Hvsigma Hvtau]].
+apply compose_coherent.
+- now apply sigma.(SO_det).
+- now apply tau.(SO_det).
+Qed.
 
 Program Definition composeOO `{J:Game} `{G:Game} `{H:Game}
   (sigma : @strategy2O J G) (tau : @strategy2O G H) :

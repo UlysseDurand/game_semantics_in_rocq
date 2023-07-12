@@ -192,10 +192,6 @@ Inductive CohOOO `{J:Game} `{G:Game} `{H:Game} :
 with CohOPP `{J:Game} `{G:Game} `{H:Game} :
   (@OPP_int J G H) -> (@OPP_int J G H) -> Prop :=
 
-  | coh_OPPneq_C : forall a a' m m' n n' s s',
-    a <> a' -> CohOPP (consOPP_C a m n s) (consOPP_C a' m' n' s')
-  | coh_OPPneq_B : forall a a' m m' n n' s s',
-    a <> a' -> CohOPP (consOPP_B a m n s) (consOPP_B a' m' n' s')
 
   | coh_OPPeq_C : forall a m n s s',
     CohOOO s s' -> CohOPP (consOPP_C a m n s) (consOPP_C a m n s')
@@ -205,10 +201,6 @@ with CohOPP `{J:Game} `{G:Game} `{H:Game} :
 with CohPOP `{J:Game} `{G:Game} `{H:Game} :
   (@POP_int J G H) -> (@POP_int J G H) -> Prop :=
 
-  | coh_POPneq_B : forall a a' m m' n n' s s',
-    a <> a' -> CohPOP (consPOP_B a m n s) (consPOP_B a' m' n' s')
-  | coh_POPneq_A : forall a a' m m' n n' s s',
-    a <> a' -> CohPOP (consPOP_A a m n s) (consPOP_A a' m' n' s')
 
   | coh_POPeq_B : forall a m n s s',
     CohOPP s s' -> CohPOP (consPOP_B a m n s) (consPOP_B a m n s')
