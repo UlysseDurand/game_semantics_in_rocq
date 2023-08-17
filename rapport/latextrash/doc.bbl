@@ -16,5 +16,59 @@
   {}
 \endgroup
 
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{game}{article}{}
+      \name{author}{4}{}{%
+        {{hash=089bb43a1278884db548621724a37492}{%
+           family={Castellan},
+           familyi={C\bibinitperiod},
+           given={Simon},
+           giveni={S\bibinitperiod}}}%
+        {{hash=dc5a6afa22ce6a610bb38bb46b9b05b9}{%
+           family={Clairambault},
+           familyi={C\bibinitperiod},
+           given={Pierre},
+           giveni={P\bibinitperiod}}}%
+        {{hash=fbdd7be486d4179a5c26d2b73c05669b}{%
+           family={Rideau},
+           familyi={R\bibinitperiod},
+           given={Silvain},
+           giveni={S\bibinitperiod}}}%
+        {{hash=ac9148668fcbbf80b9bd8c23d6a42e58}{%
+           family={Winskel},
+           familyi={W\bibinitperiod},
+           given={Glynn},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{75b817b38aac7842ef3fd877e9de4c90}
+      \strng{fullhash}{76247e14ed187138e69e4462818c6004}
+      \strng{bibnamehash}{75b817b38aac7842ef3fd877e9de4c90}
+      \strng{authorbibnamehash}{75b817b38aac7842ef3fd877e9de4c90}
+      \strng{authornamehash}{75b817b38aac7842ef3fd877e9de4c90}
+      \strng{authorfullhash}{76247e14ed187138e69e4462818c6004}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Games and Strategies as Event Structures}
+      \field{year}{2016}
+      \verb{doi}
+      \verb 10.48550/ARXIV.1604.04390
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/1604.04390
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/1604.04390
+      \endverb
+      \keyw{Logic (math.LO),Logic in Computer Science (cs.LO),FOS: Mathematics,FOS: Mathematics,FOS: Computer and information sciences,FOS: Computer and information sciences}
+    \endentry
+  \enddatalist
+\endrefsection
 \endinput
 

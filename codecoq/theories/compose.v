@@ -76,7 +76,6 @@ Inductive partiecomposeOP `{J:Game} `{G:Game} `{H:Game}
 Prouvons que la propriété d'être dans sigma parallele tau
 est stable par préfixeOOO.
  *)
-Check OOO_induc.
 
 Lemma prefixOOO_restriction_lm `{J:Game} `{G:Game} `{H:Game}:
   forall (u v:@OOO_int J G H),
@@ -284,13 +283,24 @@ Proof.
   );intros;simpl;try (now constructor);assumption.
 Qed.
 
+Lemma parallele_coherent `{J:Game} `{G:Game} `{H:Game} :
+  forall (u v : @OOO_int J G H),
+    coherentO2 (restriction_lm_OOO u) (restriction_lm_OOO v) ->
+    coherentO2 (restriction_mr_OOO u) (restriction_mr_OOO v) ->
+      CohOOO u v.
+Proof.
+Admitted.
+
 Lemma compose_coherent `{J:Game} `{G:Game} `{H:Game} :
   forall (u v : @OOO_int J G H),
     coherentO2 (restriction_lm_OOO u) (restriction_lm_OOO v) ->
     coherentO2 (restriction_mr_OOO u) (restriction_mr_OOO v) ->
       coherentO2 (restriction_lr_OOO u) (restriction_lr_OOO v).
-Admitted.
-
+Proof.
+intros u v Hlm Hmr.
+apply coherentOOO.
+now apply parallele_coherent.
+Qed.
 
 
 Lemma coherentOO `{J:Game} `{G:Game} `{H:Game}

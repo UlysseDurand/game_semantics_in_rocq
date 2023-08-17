@@ -1,9 +1,15 @@
 [0] Config.pm:307> INFO - This is Biber 2.19
-[0] Config.pm:310> INFO - Logfile is 'latextrash/doc.blg'
-[55] biber:340> INFO - === Tue Jun  6, 2023, 13:10:06
-[68] Biber.pm:419> INFO - Reading 'latextrash/doc.bcf'
-[124] Biber.pm:979> INFO - Found 0 citekeys in bib section 0
-[137] bbl.pm:660> INFO - Writing 'latextrash/doc.bbl' with encoding 'UTF-8'
-[137] bbl.pm:763> INFO - Output to latextrash/doc.bbl
-[137] Biber.pm:131> WARN - The file 'latextrash/doc.bcf' does not contain any citations!
-[137] Biber.pm:133> INFO - WARNINGS: 1
+[0] Config.pm:310> INFO - Logfile is 'doc.blg'
+[51] biber:340> INFO - === Thu Aug 17, 2023, 11:12:17
+[62] Biber.pm:419> INFO - Reading 'doc.bcf'
+[117] Biber.pm:979> INFO - Found 1 citekeys in bib section 0
+[128] Biber.pm:4419> INFO - Processing section 0
+[136] Biber.pm:4610> INFO - Looking for bibtex file 'bib.bib' for section 0
+[137] bibtex.pm:1713> INFO - LaTeX decoding ...
+[139] bibtex.pm:1519> INFO - Found BibTeX data source 'bib.bib'
+[167] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[167] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[167] Biber.pm:4239> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[167] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
+[171] bbl.pm:660> INFO - Writing 'doc.bbl' with encoding 'UTF-8'
+[172] bbl.pm:763> INFO - Output to doc.bbl

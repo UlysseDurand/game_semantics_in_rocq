@@ -182,6 +182,10 @@ Next Obligation.
   - apply G.(ES).(confl_sym);assumption.
 Qed.
 
+(**
+Pour des fonctions f_1:A->C et f_2:B->C, il existe une unique fonction
+f:(A+B)->C qui restreinte à A donne f_1 et restreinte à B donne f_2.
+ *)
 Definition extension (A B C: Set) (f1 : A -> C) (f2 : B -> C) : (sum A B)->C.
   exact (fun x => match x with |inl(a) => f1 a |inr(b) => f2 b end).
 Defined.

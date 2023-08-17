@@ -2,7 +2,7 @@
  "beforelgi"
  (lambda ()
    (TeX-add-to-alist 'LaTeX-provided-package-options
-                     '(("inputenc" "utf8") ("biblatex" "style=numeric") ("changebar" "xcolor" "leftbars")))
+                     '(("inputenc" "utf8") ("biblatex" "style=numeric" "backend=biber") ("changebar" "xcolor" "leftbars")))
    (add-to-list 'LaTeX-verbatim-environments-local "lstlisting")
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "lstinline")
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "path")
@@ -24,20 +24,20 @@
     "tikzit"
     "bbold"
     "changebar"
+    "framed"
+    "ulem"
+    "fontawesome5"
     "listings"
     "hyperref")
    (TeX-add-symbols
-    '("norm" 1))
+    '("norm" 1)
+    "FrameCommand")
    (LaTeX-add-environments
+    '("answernopage" 1)
     '("answer" 1)
     "myindentpar")
    (LaTeX-add-bibliographies
     "bib")
-   (LaTeX-add-lengths
-    "mydepth"
-    "myheight")
-   (LaTeX-add-saveboxes
-    "mybox")
    (LaTeX-add-xcolor-definecolors
     "DarkBlue"))
  :latex)

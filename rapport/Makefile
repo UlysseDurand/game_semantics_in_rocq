@@ -6,7 +6,7 @@ all:
 	python3 ~/git/compil_perso/data/compile.py -l maths -o doc.tex doc.mdx
 	uldrlatex doc.tex
 	cp bib.bib latextrash/bib.bib
-	biber latextrash/doc.bcf
+	biber latextrash/doc
 	uldrlatex doc.tex
 
 clean:

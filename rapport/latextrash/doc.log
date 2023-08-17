@@ -1,15 +1,15 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.21)  4 JUL 2023 13:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.21)  17 AUG 2023 11:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**doc.tex
+**doc
 (./doc.tex
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-06-16>
 (/usr/local/texlive/2023basic/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
-(/usr/local/texlive/2023basic/texmf-dist/tex/latex/base/size10.clo
-File: size10.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
+(/usr/local/texlive/2023basic/texmf-dist/tex/latex/base/size12.clo
+File: size12.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count185
 \c@section=\count186
@@ -849,29 +849,60 @@ Package: changebar 2022-05-06 v3.6d Indicate changes with marginal bars
 \openout6 = `doc.cb'.
 
 )
-\mybox=\box92
-\mydepth=\skip79
-\myheight=\skip80
+(/usr/local/texlive/2023basic/texmf-dist/tex/latex/framed/framed.sty
+Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
+\OuterFrameSep=\skip79
+\fb@frw=\dimen266
+\fb@frh=\dimen267
+\FrameRule=\dimen268
+\FrameSep=\dimen269
+)
+(/usr/local/texlive/2023basic/texmf-dist/tex/generic/ulem/ulem.sty
+\UL@box=\box92
+\UL@hyphenbox=\box93
+\UL@skip=\skip80
+\UL@hook=\toks39
+\UL@height=\dimen270
+\UL@pe=\count432
+\UL@pixel=\dimen271
+\ULC@box=\box94
+Package: ulem 2019/11/18
+\ULdepth=\dimen272
+)
+(/usr/local/texlive/2023basic/texmf-dist/tex/latex/fontawesome5/fontawesome5.st
+y
+Package: fontawesome5 2022/05/02 v5.15.4 Font Awesome 5
 
+(/usr/local/texlive/2023basic/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e
+.sty
+Package: l3keys2e 2023-02-02 LaTeX2e option processing using LaTeX3 keys
+)
+(/usr/local/texlive/2023basic/texmf-dist/tex/latex/fontawesome5/fontawesome5-ge
+neric-helper.sty
+Package: fontawesome5-generic-helper 2022/05/02 v5.15.4 non-uTeX helper for fon
+tawesome5
+
+(/usr/local/texlive/2023basic/texmf-dist/tex/latex/fontawesome5/fontawesome5-ma
+pping.def)))
 (/usr/local/texlive/2023basic/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count432
-\lst@gtempboxa=\box93
-\lst@token=\toks39
-\lst@length=\count433
-\lst@currlwidth=\dimen266
-\lst@column=\count434
-\lst@pos=\count435
-\lst@lostspace=\dimen267
-\lst@width=\dimen268
-\lst@newlines=\count436
-\lst@lineno=\count437
-\lst@maxwidth=\dimen269
+\lst@mode=\count433
+\lst@gtempboxa=\box95
+\lst@token=\toks40
+\lst@length=\count434
+\lst@currlwidth=\dimen273
+\lst@column=\count435
+\lst@pos=\count436
+\lst@lostspace=\dimen274
+\lst@width=\dimen275
+\lst@newlines=\count437
+\lst@lineno=\count438
+\lst@maxwidth=\dimen276
 
 (/usr/local/texlive/2023basic/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
-\c@lstnumber=\count438
-\lst@skipnumbers=\count439
-\lst@framebox=\box94
+\c@lstnumber=\count439
+\lst@skipnumbers=\count440
+\lst@framebox=\box96
 )
 (/usr/local/texlive/2023basic/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2023/02/27 1.9 listings configuration
@@ -915,11 +946,11 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ing.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count440
+\c@section@level=\count441
 )
-\@linkdim=\dimen270
-\Hy@linkcounter=\count441
-\Hy@pagecounter=\count442
+\@linkdim=\dimen277
+\Hy@linkcounter=\count442
+\Hy@pagecounter=\count443
 
 (/usr/local/texlive/2023basic/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2023-05-16 v7.00y Hyperref: PDFDocEncoding definition (HO)
@@ -929,7 +960,7 @@ Now handling font encoding PD1 ...
 (/usr/local/texlive/2023basic/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count443
+\Hy@SavedSpaceFactor=\count444
 
 (/usr/local/texlive/2023basic/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2023-05-16 v7.00y Hyperref: PDF Unicode definition (HO)
@@ -943,9 +974,9 @@ Package hyperref Info: Plain pages OFF on input line 4182.
 Package hyperref Info: Backreferencing OFF on input line 4187.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4434.
-\c@Hy@tempcnt=\count444
+\c@Hy@tempcnt=\count445
 LaTeX Info: Redefining \url on input line 4772.
-\XeTeXLinkMargin=\dimen271
+\XeTeXLinkMargin=\dimen278
 
 (/usr/local/texlive/2023basic/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -954,9 +985,9 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count445
-\Field@Width=\dimen272
-\Fld@charsize=\dimen273
+\Fld@menulength=\count446
+\Field@Width=\dimen279
+\Fld@charsize=\dimen280
 Package hyperref Info: Hyper figures OFF on input line 6051.
 Package hyperref Info: Link nesting OFF on input line 6056.
 Package hyperref Info: Hyper index ON on input line 6059.
@@ -968,9 +999,9 @@ Package hyperref Info: PDF/A mode OFF on input line 6081.
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count446
-\c@Item=\count447
-\c@Hfootnote=\count448
+\Hy@abspage=\count447
+\c@Item=\count448
+\c@Hfootnote=\count449
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 
@@ -982,8 +1013,8 @@ Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
 kage
 with kernel methods
 )
-\Fld@listcount=\count449
-\c@bookmark@seq@number=\count450
+\Fld@listcount=\count450
+\c@bookmark@seq@number=\count451
 
 (/usr/local/texlive/2023basic/texmf-dist/tex/latex/rerunfilecheck/rerunfilechec
 k.sty
@@ -1001,53 +1032,49 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 
 Package hyperref Warning: Unexpected value `truem'
 (hyperref)                of option `colorlinks' instead of
-(hyperref)                `true' or 'false' on input line 68.
+(hyperref)                `true' or 'false' on input line 80.
 
 
 Package biblatex Warning: Patching footnotes failed.
 (biblatex)                Footnote detection will not work.
 
-\@quotelevel=\count451
-\@quotereset=\count452
-
-LaTeX Warning: Unused global option(s):
-    [12ptCOUCOU].
-
+\@quotelevel=\count452
+\@quotereset=\count453
 (./doc.aux)
 \openout1 = `doc.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
 
 (/usr/local/texlive/2023basic/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count453
-\scratchdimen=\dimen274
-\scratchbox=\box95
-\nofMPsegments=\count454
-\nofMParguments=\count455
-\everyMPshowfont=\toks40
-\MPscratchCnt=\count456
-\MPscratchDim=\dimen275
-\MPnumerator=\count457
-\makeMPintoPDFobject=\count458
-\everyMPtoPDFconversion=\toks41
+\scratchcounter=\count454
+\scratchdimen=\dimen281
+\scratchbox=\box97
+\nofMPsegments=\count455
+\nofMParguments=\count456
+\everyMPshowfont=\toks41
+\MPscratchCnt=\count457
+\MPscratchDim=\dimen282
+\MPnumerator=\count458
+\makeMPintoPDFobject=\count459
+\everyMPtoPDFconversion=\toks42
 )
 (/usr/local/texlive/2023basic/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.s
 ty
@@ -1072,21 +1099,21 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'doc.bbl' found.
 (./doc.bbl)
-Package biblatex Info: Reference section=0 on input line 79.
-Package biblatex Info: Reference segment=0 on input line 79.
-\c@lstlisting=\count459
-Package hyperref Info: Link coloring OFF on input line 79.
+Package biblatex Info: Reference section=0 on input line 91.
+Package biblatex Info: Reference segment=0 on input line 91.
+\c@lstlisting=\count460
+Package hyperref Info: Link coloring OFF on input line 91.
  (./doc.out) (./doc.out)
 \@outlinefile=\write7
 \openout7 = `doc.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 81.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 93.
 
 
 (/usr/local/texlive/2023basic/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 81.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 93.
 
 
 (/usr/local/texlive/2023basic/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -1095,296 +1122,249 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 {/usr/local/texlive/2023basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2
 ]
-Overfull \hbox (12.22223pt too wide) in paragraph at lines 119--119
-[] [] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 103--120
+Underfull \hbox (badness 10000) in paragraph at lines 153--170
 
  []
 
 
-Overfull \hbox (12.22223pt too wide) in paragraph at lines 136--136
-[] [] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 124--137
-
- []
-
-
-Overfull \hbox (12.22223pt too wide) in paragraph at lines 144--144
-[] [] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 140--145
-
- []
-
-
-Overfull \hbox (12.22223pt too wide) in paragraph at lines 150--150
-[] [] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 146--151
-
- []
-
-
-Overfull \hbox (12.22223pt too wide) in paragraph at lines 170--170
-[] [] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 155--171
+Underfull \hbox (badness 10000) in paragraph at lines 176--189
 
  []
 
 [3]
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 174.
-
-
-Overfull \hbox (12.22223pt too wide) in paragraph at lines 184--184
-[] [] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 176--185
+Underfull \hbox (badness 10000) in paragraph at lines 192--197
 
  []
 
 
-Overfull \hbox (12.22223pt too wide) in paragraph at lines 197--197
-[] [] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 189--198
+Underfull \hbox (badness 10000) in paragraph at lines 205--210
 
  []
 
 
-Overfull \hbox (12.22223pt too wide) in paragraph at lines 204--204
-[] [] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 202--205
-
- []
-
-
-Overfull \hbox (12.22223pt too wide) in paragraph at lines 230--230
-[] [] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 211--231
+Underfull \hbox (badness 10000) in paragraph at lines 218--234
 
  []
 
 [4]
-Overfull \hbox (12.22223pt too wide) in paragraph at lines 240--240
-[] [] 
- []
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 237.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 234--241
-
- []
-
-
-Overfull \hbox (12.22223pt too wide) in paragraph at lines 248--248
-[] [] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 242--249
+Underfull \hbox (badness 10000) in paragraph at lines 239--243
 
  []
 
 
-Overfull \hbox (12.22223pt too wide) in paragraph at lines 276--276
-[] [] 
+Underfull \hbox (badness 10000) in paragraph at lines 248--257
+
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 252--277
+Underfull \hbox (badness 10000) in paragraph at lines 262--271
 
  []
 
 [5]
-Overfull \hbox (12.22223pt too wide) in paragraph at lines 301--301
-[] [] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 297--302
+Underfull \hbox (badness 10000) in paragraph at lines 272--275
 
  []
 
 
-Overfull \hbox (12.22223pt too wide) in paragraph at lines 317--317
-[] [] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 309--318
-
- []
-
-
-Overfull \hbox (12.22223pt too wide) in paragraph at lines 323--323
-[] [] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 321--324
-
- []
-
-
-Overfull \hbox (12.22223pt too wide) in paragraph at lines 327--327
-[] [] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 325--328
-
- []
-
-(../figures/diagpol.tikz)
-Overfull \hbox (12.22223pt too wide) in paragraph at lines 345--345
-[] [] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 329--346
+Underfull \hbox (badness 10000) in paragraph at lines 294--314
 
  []
 
 [6]
-Overfull \hbox (12.22223pt too wide) in paragraph at lines 353--353
-[] [] 
+Underfull \hbox (badness 10000) in paragraph at lines 317--322
+
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 351--354
+Underfull \hbox (badness 10000) in paragraph at lines 327--334
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 343--368
 
  []
 
 [7]
-Overfull \hbox (12.22223pt too wide) in paragraph at lines 384--384
-[] [] 
+Overfull \hbox (4.0156pt too wide) in paragraph at lines 380--383
+[]\OT1/cmr/m/n/12 Apr^^Res avoir d^^Sefini $[][]$ et $\OMS/cmsy/m/n/12 ^^N$\OT1
+/cmr/m/n/12 , il nous restera ^^Ra prou-ver que avec ces d^^Sefinitions,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 362--385
-
- []
-
-
-Overfull \hbox (12.22223pt too wide) in paragraph at lines 398--398
-[] [] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 388--399
-
- []
-
-
-Overfull \hbox (12.22223pt too wide) in paragraph at lines 414--414
-[] [] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 406--415
-
- []
-
-
-Overfull \hbox (2.4728pt too wide) in paragraph at lines 417--419
-[]\OT1/cmr/m/n/10 Maintenant pas-sons aux strat^^Segies, nous al-lons con-stru-
-ire la re-la-tion de coh^^Serence
- []
-
-
-Overfull \hbox (12.22223pt too wide) in paragraph at lines 435--435
-[] [] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 420--436
+Underfull \hbox (badness 10000) in paragraph at lines 394--399
 
  []
 
 [8]
-Overfull \hbox (78.00409pt too wide) in paragraph at lines 437--437
-[]$[]$ 
+Underfull \hbox (badness 10000) in paragraph at lines 410--419
+
  []
 
 
-Overfull \hbox (12.22223pt too wide) in paragraph at lines 502--502
-[] [] 
+Overfull \hbox (35.31555pt too wide) in paragraph at lines 420--423
+[]\OT1/cmr/m/n/12 (Pour $\OML/cmm/m/it/12 u \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 
+u[]u[] [] u[]; u \U/msa/m/n/12 ^^V \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 A; B\OT1/c
+mr/m/n/12 ) := (\OML/cmm/m/it/12 u[]\OT1/cmr/m/n/12 )[]$ o^^Ru $\OML/cmm/m/it/1
+2 I \OT1/cmr/m/n/12 = \OMS/cmsy/m/n/12 f\OML/cmm/m/it/12 i=u[][]A[]B\OMS/cmsy/m
+/n/12 g$\OT1/cmr/m/n/12 ) 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 437--503
+Underfull \hbox (badness 10000) in paragraph at lines 420--423
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 424--426
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 430--433
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 436--439
 
  []
 
 [9]
+Overfull \hbox (16.21378pt too wide) in paragraph at lines 450--450
+[]\OT1/cmr/bx/n/17.28 D^^Sefinitions ^^Sequivalentes ma-nip-u-la-bles en Coq 
+ []
 
-LaTeX Warning: Empty bibliography on input line 505.
 
-[10] (./doc.aux)
+Overfull \hbox (4.82646pt too wide) in paragraph at lines 452--455
+\OT1/cmr/m/n/12 Pour faire du Coq nous al-lons pr^^Sef^^Serer des d^^Sefinition
+s in-duc-tives aux d^^Sefinitions
+ []
+
+LaTeX Font Info:    Trying to load font information for U+fontawesomefree0 on i
+nput line 460.
+
+(/usr/local/texlive/2023basic/texmf-dist/tex/latex/fontawesome5/ufontawesomefre
+e0.fd) [10{/usr/local/texlive/2023basic/texmf-dist/fonts/enc/dvips/fontawesome5
+/fa5free0.enc}]
+Underfull \hbox (badness 10000) in paragraph at lines 491--514
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 515--517
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 530--544
+
+ []
+
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 561--572
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 573--575
+
+ []
+
+[12]
+Underfull \hbox (badness 10000) in paragraph at lines 584--600
+
+ []
+
+(../figures/diagpol.tikz) (../figures/diagpolbis.tikz) [13]
+Underfull \hbox (badness 10000) in paragraph at lines 642--657
+
+ []
+
+
+Overfull \hbox (8.7362pt too wide) in paragraph at lines 658--661
+[]\OT1/cmr/m/n/12 Apr^^Res avoir adapt^^Se les d^^Sefinitions de par-ties aux j
+eux $\OML/cmm/m/it/12 A \OMS/cmsy/m/n/12 ` \OML/cmm/m/it/12 B$ \OT1/cmr/m/n/12 
+nous d^^Sefinissons
+ []
+
+[14] [15]
+Underfull \hbox (badness 10000) in paragraph at lines 694--698
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 710--713
+
+ []
+
+[16] [17]
+Underfull \hbox (badness 10000) in paragraph at lines 727--734
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 738--740
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 735--771
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 725--772
+
+ []
+
+[18] [19] [20] [21] (./doc.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-06-16>
  ***********
 Package rerunfilecheck Info: File `doc.out' has not changed.
-(rerunfilecheck)             Checksum: CDA6853EC63242C98757CF79B877B052;1861.
+(rerunfilecheck)             Checksum: A7210B6FBB2EEF2CCDAF6027C279F12B;2626.
 Package logreq Info: Writing requests to 'doc.run.xml'.
 \openout1 = `doc.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 31497 strings out of 477174
- 615540 string characters out of 5816070
- 1868769 words of memory out of 5000000
- 51557 multiletter control sequences out of 15000+600000
- 521944 words of font info for 67 fonts, out of 8000000 for 9000
+ 34959 strings out of 477174
+ 690626 string characters out of 5816070
+ 1870769 words of memory out of 5000000
+ 54972 multiletter control sequences out of 15000+600000
+ 523561 words of font info for 73 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 117i,12n,121p,676b,988s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 117i,14n,121p,672b,1260s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </Users/ulyssedurand/Library/texlive/2023basic/texmf-var/fonts/pk/ljfour/jkn
-appen/ec/tcrm1000.600pk></usr/local/texlive/2023basic/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023basic/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023basic/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2023basic/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023basic/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2023basic/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023basic/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023basi
-c/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023b
-asic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/20
-23basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/
-2023basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texliv
-e/2023basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/te
-xlive/2023basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local
-/texlive/2023basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/lo
-cal/texlive/2023basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb
->
-Output written on doc.pdf (10 pages, 198168 bytes).
+appen/ec/tcrm1200.600pk></usr/local/texlive/2023basic/texmf-dist/fonts/type1/pu
+blic/fontawesome5/FontAwesome5Free-Solid.pfb></usr/local/texlive/2023basic/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023basic/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2023
+basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive
+/2023basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/tex
+live/2023basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/
+texlive/2023basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/loc
+al/texlive/2023basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/
+local/texlive/2023basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></u
+sr/local/texlive/2023basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><
+/usr/local/texlive/2023basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
+></usr/local/texlive/2023basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10
+.pfb></usr/local/texlive/2023basic/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+sy6.pfb></usr/local/texlive/2023basic/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmsy8.pfb></usr/local/texlive/2023basic/texmf-dist/fonts/type1/public/amsfonts
+/symbols/msam10.pfb>
+Output written on doc.pdf (21 pages, 216087 bytes).
 PDF statistics:
- 180 PDF objects out of 1000 (max. 8388607)
- 135 compressed objects within 2 object streams
- 21 named destinations out of 1000 (max. 500000)
- 93 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 261 PDF objects out of 1000 (max. 8388607)
+ 204 compressed objects within 3 object streams
+ 39 named destinations out of 1000 (max. 500000)
+ 133 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -22,6 +22,7 @@
 3'^---tf\*~n~' -> '\end{myindentpar}~n~'
 3'^---tf~n~' -> '\end{answer}~n~'
 3'^---h (.*?)~n~(.*?)~n~---h~n~' -> '\begin{answer}{%1}~n~%2~n~\end{answer}~n~'
+3'^---hp (.*?)~n~(.*?)~n~---hp~n~' -> '\begin{answernopage}{%1}~n~%2~n~\end{answernopage}~n~'
 3'^---s~n~(.*?)~n~---s' -> '\begin{split}~n~%1~n~\end{split}'
 3'^---ml~n~(.*?)~n~---ml' -> '\begin{align*}~n~%1~n~\end{align*}'
 3'^---mln(.*?)~n~(.*?)~n~---mln' -> '\begin{alignat*}{%1}~n~%2~n~\end{alignat*}'

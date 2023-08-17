@@ -4,14 +4,13 @@ if "taillepolice" in data:
     print(data["taillepolice"])
 else:
     print("12pt",end='')
-print("COUCOU")
 %]{article}
 %
 loadpackages()
 %
 \usepackage[utf8]{inputenc}
 \usepackage{amssymb}
-\usepackage[style=numeric]{biblatex}
+\usepackage[style=numeric,backend=biber]{biblatex}
 \usepackage{amsmath}
 \usepackage{xcolor}
 \usepackage{enumitem}
@@ -19,7 +18,10 @@ loadpackages()
 \usepackage{tikzit}
 \usepackage{bbold}
 \usepackage[xcolor,leftbars]{changebar}
-\setlength{\parindent}{0pt}
+\usepackage{framed}
+\usepackage{ulem}
+\usepackage{fontawesome5}
+
 \setcounter{secnumdepth}{1}
 \newenvironment{myindentpar}
  {\begin{list}{}
@@ -28,25 +30,36 @@ loadpackages()
  }
  { \end{list}}
 
+\renewenvironment{leftbar}{
+  \def\FrameCommand{\vrule width 1pt \hspace{10pt}}
+  \MakeFramed {\advance\hsize-\width \FrameRestore}
+\setlength{\parskip}{10pt}}
+ {\endMakeFramed}
 
 
 
 \definecolor{DarkBlue}{RGB}{0,16,80}
 \newcommand{\norm}[1]{\lvert #1 \rvert}
-\newsavebox{\mybox}
-\newlength{\mydepth}
-\newlength{\myheight}
+
 \newenvironment{answer}[1]
-{\vspace{0.5cm}\begin{minipage}{\linewidth}\textbf{\textit{\underline{#1}}}\par\begin{lrbox}{\mybox}\quad\begin{minipage}{\linewidth}\color{black}\setlength{\parskip}{10pt}}
-{\end{minipage}\end{lrbox}
-\settodepth{\mydepth}{\usebox{\mybox}}
-\settoheight{\myheight}{\usebox{\mybox}}
-\addtolength{\myheight}{\mydepth}
-\noindent\makebox[0pt]{
-  \color{gray}\hspace{-0pt}\rule[-\mydepth]{1pt}{\myheight}}
-\usebox{\mybox}
-\end{minipage}
-  }
+{
+  \vspace{0.5cm} \noindent \begin{minipage}{\linewidth}
+    \textbf{\textit{\uline{#1}}}
+    \begin{leftbar}
+}
+{
+    \end{leftbar}\end{minipage}\vspace{0.2cm}
+}
+
+\newenvironment{answernopage}[1]
+{
+  \vspace{0.5cm} \noindent
+  \textbf{\textit{\uline{#1}}}
+  \begin{leftbar}
+}
+{
+    \end{leftbar}\vspace{0.2cm}
+}
 
 \usepackage{listings}
 \lstset
@@ -61,7 +74,6 @@ loadpackages()
     breakatwhitespace=false,
 }
 
-\setlist[itemize]{topsep=0pt}
 
 \usepackage{hyperref}
 \hypersetup{
