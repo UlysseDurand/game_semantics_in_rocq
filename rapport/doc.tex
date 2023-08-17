@@ -97,42 +97,52 @@
 
 La sémantique de jeux est un domaine étudié en logique, plus précisément en
 théorie de la programmation.
-En effet, on peut avec elle étudier et raisonner sur l'execution d'un programme
+En effet, on peut avec elle étudier et raisonner sur l'exécution d'un programme
 tout comme sur la véracité d'une proposition logique.
+Pour raisonner sur une proposition logique, on imagine un jeu où l'opposant
+cherche à montrer que la proposition n'est pas une tautologie alors que le joueur
+cherche à montrer que c'est une tautologie. Par exemple, pour la proposition
+(A et (B ou (non B)) opposant commence en disant "je pense que tu ne peux montrer
+(B ou (non B))", le joueur rétorque "je pense que je peux montrer (non B)". Ainsi
+une stratégie gagnante dans ce jeu est une preuve que la proposition est une
+tautologie.
+Pour ce qui est des programmes, l'execution du programme revient à une partie.
+Pour executer 7+x, par exemple, l'opposant demande "que vaut 7+x : int",
+le joueur répond "que vaut x : int ?", l'opposant répond 3, le joueur répond 10.
+L'opposant a le rôle d'interface avec l'environnement.
 
-Ce champs de recherche manque de formalisme, beaucoup de papiers utilisent des
-définitions différentes ayant une expressivité équivalente.
+Pour la sémantique des jeux il y a différents formalismes, avec des spécificités
+différentes, et les constructions permettant d'obtenir une catégorie ne sont
+souvent qu'esquissées car souffrent d'une technicité rendant difficile
+la formalisation dans un assistant de preuves.
 Dans un article dont Pierre Clairambault est un auteur, il est proposé une
-formalisation élégante dans le sens où
-elle permet de définir une catégorie cartesienne
-fermée des jeux et stratégies \cite{game}.
+formalisation qui semble unifiante et implémentable dans un assistant de preuve,
+fournissant ainsi un cadre pour raisonner en Coq sur les jeux et stratégies.
+\cite{game}.
 
 Le but de ce stage est de remanier les définitions plutôt ensemblistes de cette
 formalisation en des définitions inductives et d'en profiter pour faire des
 preuves en Coq.
 
-Le but initial du stage était d'aller jusqu'à montrer qu'on a bien
-une catégorie des jeux et stratégies. Cependant, il se limite au final
-à presque montrer (à un lemme près)
-que la composition de deux stratégies est bien une stratégie.
-
-Etienne Miquey a proposé un premier jet de fichier Coq et mon travail fu de
-bien l'assimiler, faire des preuves qui étaient admises, et enfin avancer plus
-loin son travail.
+L'objectif à long terme de ce travail serait d'aller jusqu'à montrer qu'on a bien
+une catégorie cartésienne fermée des jeux et stratégies. Mon apport dans ce stage
+est de montrer que la composition de deux stratégies est bien une
+stratégie.
+Concrètement, j'ai été ammené dans mon stage à assimiler les notions de sémantique
+des jeux et la formalisation de Pierre Clairambault, et prolonger l'esquisse de
+formalisation qu'Étienne Miquey a proposé en Coq.
 
 Nous allons alors voir dans un premier temps quelles sont ces définitions
 plutôt ensemblistes présentées dans la formalisation, puis dans un second temps
 quelles définitions inductives nous aurons adopté dans Coq, et quelles preuves
 nous avons pu faire.
-
 Le document comporte une annexe avec quelques preuves non formalisées en Coq.
 
 \newpage
 \section{Définitions usuelles de sémantique de jeu}
 
-Nous allons définir petit à petit les jeux et stratégies pour faire
-cette catégorie des jeux et stratégies.
-
+Afin d'obtenir, d'un point de vue algébrique, une catégorie des jeux et
+stratégies, nous allons définir petit à petit les jeux et stratégies.
 Commençons par définir ce qui constituera notre structure de jeu,
 les structures d'événement.
 
@@ -161,11 +171,11 @@ Il s'agit de $E = (|E|, \leq_E, \#_E)$ où
 \begin{itemize}
 \item à causes finies :
 
-$\forall e \in |E|, \{e' \in |E| \mid e' \leq_E e\}$ est fini
+\begin{equation*}\forall e \in |E|, \{e' \in |E| \mid e' \leq_E e\}\text{ est fini}\end{equation*}
 
 \item qui vérifie l'axiome de vendetta :
 
-$\forall e_1 \#_E e_2, (e_2 \leq_E e'_2 \implies e_1 \# e'_2)$
+\begin{equation*}\forall e_1 \#_E e_2, (e_2 \leq_E e'_2 \implies e_1 \# e'_2)\end{equation*}
 \end{itemize}
 \end{itemize}
 \end{answer}
@@ -177,27 +187,26 @@ configuration.
 
 \begin{answer}{Configuration :}
 
-$x$ fini $\subset |E|$ est une configuration si
+On dit que $x$ fini $\subset |E|$ est une configuration si
 \begin{itemize}
 \item $x$ est fermé vers le bas :
 
-$\forall e \in x, \forall e' \in |E|, e' \leq_E e \implies e' \in x$
+\begin{equation*}\forall e \in x, \forall e' \in |E|, e' \leq_E e \implies e' \in x\end{equation*}
 
 \item $x$ est sans conflit
 
-$\forall e, e' \in x, \neg (e \#_E e')$
+\begin{equation*}\forall e, e' \in x, \neg (e \#_E e')\end{equation*}
 \end{itemize}
 \end{answer}
 
 On note $\mathcal{C}(E)$ l'ensemble des configurations de $E$.
 
 \begin{answer}{Justification :}
-$x \in \mathcal{C}(E)$ justifie $e \in |E|$, noté $x \vdash e$ si
-
+On dit que $x \in \mathcal{C}(E)$ justifie $e \in |E|$, noté $x \vdash e$ si
 $x \uplus \{e\} \in \mathcal{C}(E)$
 \end{answer}
 
-Nos jeux n'auront que deux joueurs, un appelé opposant (celui qui commence)
+Les jeux n'auront que deux joueurs, un appelé opposant (celui qui commence)
 et l'autre est le joueur, on leur attribue une polarité (- et +).
 
 Un jeu est alors une structure d'événement avec une polarité à chaque événement.
@@ -205,7 +214,7 @@ On précise en fait pour chaque événement si il est déclancheable par l'oppos
 (polarité -) ou par le joueur (polarité +).
 
 \begin{answer}{Jeu :}
-Un jeu est $A$ une S.E munie de
+Un jeu est $A$ une S.E munie d'une fonction
 
 $\text{pol}_A : |A| \rightarrow \{-, +\}$
 \end{answer}
@@ -262,17 +271,17 @@ opposants sont maintenant des coups joueur et les coups joueur sont maintenant
 des coups opposant.
 
 \begin{answer}{Jeu dual :}
-On définit le jeu ${}^\bot A$
+On définit le jeu $A^\bot$
 \begin{itemize}
-\item $|{}^\bot A| = |A|$
-\item $\leq_{{}^\bot A} = \leq_A$
-\item $\#_{{}^\bot A} = \#_A$
-\item $\text{pol}_{{}^\bot A} = - \text{pol}_A$
+\item $|A^\bot| = |A|$
+\item $\leq_{A^\bot} = \leq_A$
+\item $\#_{A^\bot} = \#_A$
+\item $\text{pol}_{A^\bot} = - \text{pol}_A$
 \end{itemize}
 \end{answer}
 
 \begin{answer}{Le jeu $A \vdash B$ :}
-$A \vdash B = {}^\bot A \otimes B$
+$A \vdash B = A^\bot \otimes B$
 \end{answer}
 
 On verra que cette définition est surtout utile pour définir des stratégies
@@ -337,13 +346,14 @@ $\sigma \upharpoonright A_k = \{a\upharpoonright A_k \mid a \in \sigma\}$
 \subsubsection{Catégories :}
 
 Comme notre objectif reste de définir une catégorie des jeux et stratégies, nous
-allons d'abord voir ce qu'est une catégorie puis comment on construit la notre.
+allons d'abord voir ce qu'est une catégorie puis comment on construit celle des
+jeux et stratégies.
 
 Dans la suite, ce qu'on appelle "classe" peut en fait être considéré comme
 ensemble même si on définit ainsi que les petites catégories.
 
 \begin{answer}{Catégorie :}
-Une catégorie $\mathcal{C}$ c'est
+Une catégorie $\mathcal{C}$ est la donnée de
 \begin{itemize}
 \item Une classe d'objets $|\mathcal{C}|$
 
@@ -385,7 +395,7 @@ pour $\circ$.
 
 \subsubsection{Copycat}
 
-Copycat de $A$ est une stratégie sur $A \vdash A = {}^\bot A \otimes A$
+Copycat de $A$ est une stratégie sur $A \vdash A = A^\bot \otimes A$
 L'idée de la stratégie copycat est la suivante.
 
 Si l'opposant joue un coup sur le jeu de gauche (resp. droite), alors on répond
@@ -394,7 +404,7 @@ la polarité est opposée entre le jeu de gauche et droite,
 un coup opposant d'un côté a un coup mirroir joueur sur le jeu de l'autre côté.
 
 \begin{answer}{Definition :}
-Copycat de $A$ c'est
+Copycat de $A$ est la stratégie définie par
 
 $cc_A=\{s \in \mathcal{P}(A_1 \vdash A_2) \mid \forall t \sqsubseteq^+ s, t \upharpoonright A_1 = t \upharpoonright A_2\}$
 \end{answer}
@@ -411,7 +421,8 @@ respecte les conditions de partie sur $A\vdash B,B\vdash C,C\vdash A$.
 
 \begin{answer}{Définition : interaction}
 
-Une interaction sur $A, B, C$ est $u \in (A \otimes B \otimes C)^*$ tel que
+Une interaction sur $A, B, C$ est donnée par une séquence
+$u \in (A \otimes B \otimes C)^*$ telle que
 \begin{itemize}
 \item $u \upharpoonright (A, B) \in \mathcal{P}(A \vdash B)$
 \item $u \upharpoonright (B, C) \in \mathcal{P}(B \vdash C)$
@@ -439,11 +450,10 @@ Enfin nous définissons la stratégie composée.
 $\sigma \circ \tau = \{u \upharpoonright A,C \mid u \in \sigma || \tau\}$
 \end{answer}
 
-Cette définition est peu intuitive mais nous allons voir que pour toute partie
+Expliquons cette définition : nous prouvons dans l'annexe que
+pour toute partie
 $s$, il existe une unique interaction $u \in \sigma || \tau$ telle que
-$u\upharpoonright (A,C) = s$, $u$ sera appelé témoin de $s$. Se référer à
-la preuve 1 de l'annexe.
-
+$u\upharpoonright (A,C) = s$, $u$ sera appelé témoin de $s$.
 Alors on voit que $\sigma \circ \tau$ est l'ensemble des parties sur $A\vdash C$
 dont le témoin respecte $\sigma$ et $\tau$, c'est à dire que morallement,
 on peut avoir de manière intriquée, les parties $A\vdash B, B\vdash C, A\vdash C$
@@ -453,7 +463,9 @@ en jouant $\sigma$ et $\tau$.
 
 Pour faire du Coq nous allons préférer des définitions inductives aux
 définitions ensemblistes. Alors, nous allons donner des définitions inductives
-aux parties, aux interactions, aux relations entre parties (préfixe, cohérente).
+aux parties, aux interactions, aux relations entre parties (préfixe, cohérente), etc...
+Chaque symbole \faCode  est un hyperlien vers la définition correspondante dans la
+documentation HTML autogénérée des fichiers Coq.
 
 Les définitions suivantes sont inchangées dans notre code Coq, on ne cherche pas
 à en trouver une caractérisation inductive plus manipulable.
@@ -475,8 +487,8 @@ structure d'événements (plus compliqué) et qu'un jeu dual est bien un jeu.
 
 Une partie étant un mot, nous avons l'habitude pour définir un mot de manière
 inductive d'empiler les lettres à la fin du mot. Ici nous allons le faire au
-début et alors une partie où on enlève son premier coup est aussi une partie
-mais dans un autre jeu où on enlève cet événement et ses conflits.
+début, ainsi,  retirer le premier coup d'une partie définit toujours une
+partie mais dans un autre jeu où on enlève cet événement et ses conflits.
 
 Voyons comment se construit une partie dont le premier coup est un événement
 $a$ et la suite des coups est $s$
@@ -522,10 +534,9 @@ Pour construire une partie commençant par un coup positif (resp. négatif)
 il faut ajouter un coup négatif (resp. positif) devant une partie
 qui commence par un coup positif (resp. négatif).
 
-Nous ne considérerons que les parties finissant par un coup positif, c'est pour
-ça que notre seul cas de base sera que la partie vide fait partie de celles qui
-commencent par un coup négatif.
-
+Nous ne considérerons que les parties finissant par un coup positif,
+pour cela la partie vide, seul cas de base, sera considérée comme faisant
+partie des parties commençant par un coup négatif.
 
 \begin{answer}{Definition Coq : Les parties \href{https://ulysse_durand.gitlab.io/stagel3/Codecoq.theories.strategy.html\#O\_play}{\faCode}}
 Les parties commençant par un coup négatif sont les OPlay
@@ -601,9 +612,10 @@ $\frac{s : \text{PPlay} \qquad s':\text{PPlay} \qquad \text{Coh}^+(s,s')}
 On adapte aussi cette définition pour la cohérence entre les $\text{OPlay}_2$ et les
 $\text{PPlay}_2$ \href{https://ulysse_durand.gitlab.io/stagel3/Codecoq.theories.jeuthese.html\#coherentO2}{\faCode}.
 
-
-Nos stratégies sont maintenant bien définies \href{https://ulysse_durand.gitlab.io/stagel3/Codecoq.theories.strategy.html#strategy}{\faCode}.
-Les stratégies sur les jeux $A\vdash B$ aussi \href{https://ulysse_durand.gitlab.io/stagel3/Codecoq.theories.jeuthese.html#strategy2O}{\faCode}.
+Cela nous permet bien de définir formellement les stratégies
+\href{https://ulysse_durand.gitlab.io/stagel3/Codecoq.theories.strategy.html#strategy}{\faCode}
+ainsi que les stratégies sur les jeux $A\vdash B$
+\href{https://ulysse_durand.gitlab.io/stagel3/Codecoq.theories.jeuthese.html#strategy2O}{\faCode}.
 
 \subsection{Composition de stratégies}
 
@@ -669,8 +681,8 @@ qui ont le bon type ($\text{OOOInt} \rightarrow \text{OPlay}_2$ par exemple).
 
 On définit aussi naturellement la relation de préfixe sur les interactions \href{https://ulysse_durand.gitlab.io/stagel3/Codecoq.theories.interactions.html\#prefixOOO}{\faCode}.
 
-En plus de aussi fournir une définition des stratégies sur les jeux
-$A\vdash B$ plus manipulables, on définit les stratégies résiduelles.
+Pour faire nos preuves sur les structures inductives de parties,
+on définit les stratégies résiduelles.
 
 \begin{answer}{Stratégie résiduelle \href{https://ulysse_durand.gitlab.io/stagel3/Codecoq.theories.residustrat.html\#residu\_stratO\_l}{\faCode}}
 Une stratégie residuelle $\sigma_{\backslash a}$ est une stratégie sur le jeu
@@ -691,19 +703,24 @@ stratégies parallèles est stable par préfixe. \href{https://ulysse_durand.git
 \newpage
 \section{Conclusion}
 
-En soit le travail fourni ici ne prouve pas grand chose tant que l'on n'a pas
-fait de "sanity check", c'est à dire des preuves que les définitions inductives
+Le travail que j'ai fourni pendant ce stage tend à laisser penser que le
+formalisme de Pierre Clairambault semble bien adéquat pour un formalisme des
+jeux et stratégies en assistant de preuves.
+La reformulation inductive d'un bon nombre d'éléments est au final possible,
+chose intuitée par mes maitres de stage mais réalisée ici.
+
+Il manque surtout à tout ce travail un bon nombre de "sanity check",
+c'est à dire des preuves que les définitions inductives
 que l'on a construit correspondent bien aux définitions ensemblistes
 (Quelques uns de ces sanitycheck sont dans le fichier sanitycheck.v).
-
-Il ne faut pas oublier qu'il y a un Admitted et il y a aussi des chances qu'une
-des définitions inductives soit mauvaise, celle de la cohérence entre deux parties
-sur un jeu $A\vdash B$. Il manque des constructeurs et je n'ai eu le temps de
-comprendre comme il faut pourquoi ils manquent.
+\footnote{Il y a un admitted dans le code, ce n'est qu'à cause d'un manque de
+temps, la preuve est accessible avec le principe d'induction sur la structure
+inductive mutuelle}
 
 Il faut aussi rappeler que je ne suis pas parti de rien pour ce travail,
-Etienne Miquey avait déjà bien avancé les idées, et son travail en cours
-que j'ai reppris est disponible dans le fichier Games\_ind.v.
+Etienne Miquey avait déjà commencé une super esquisse et avancé les idées,
+son travail que j'ai poursuivi est disponible dans le
+fichier Games\_ind.v.
 \\
 
 Dans de ce stage, j'ai pu explorer certains outils de Coq qui m'étaient
