@@ -102,7 +102,8 @@ tout comme sur la véracité d'une proposition logique.
 
 Ce champs de recherche manque de formalisme, beaucoup de papiers utilisent des
 définitions différentes ayant une expressivité équivalente.
-Pierre Clairambault a alors proposé une formalisation élégante dans le sens où
+Dans un article dont Pierre Clairambault est un auteur, il est proposé une
+formalisation élégante dans le sens où
 elle permet de définir une catégorie cartesienne
 fermée des jeux et stratégies \cite{game}.
 
@@ -112,7 +113,8 @@ preuves en Coq.
 
 Le but initial du stage était d'aller jusqu'à montrer qu'on a bien
 une catégorie des jeux et stratégies. Cependant, il se limite au final
-à montrer que la composition de deux stratégies est bien une stratégie.
+à presque montrer (à un lemme près)
+que la composition de deux stratégies est bien une stratégie.
 
 Etienne Miquey a proposé un premier jet de fichier Coq et mon travail fu de
 bien l'assimiler, faire des preuves qui étaient admises, et enfin avancer plus
@@ -458,14 +460,12 @@ Les définitions suivantes sont inchangées dans notre code Coq, on ne cherche p
 
 \begin{itemize}
 \item Structures d'événements \href{https://ulysse\_durand.gitlab.io/stagel3/Codecoq.theories.jeu.html\#EventStructure}{\faCode}
-\item Configuration
-\item Justification
-\item Jeu
-\item Jeu tenseur
-\item les interactions de stratégies parallèles
+\item Configuration \href{https://ulysse\_durand.gitlab.io/stagel3/Codecoq.theories.jeu.html\#configuration}{\faCode}
+\item Justification \href{https://ulysse\_durand.gitlab.io/stagel3/Codecoq.theories.jeu.html\#justifies}{\faCode}
+\item Jeu \href{https://ulysse\_durand.gitlab.io/stagel3/Codecoq.theories.jeu.html\#Game}{\faCode}
+\item Jeu tenseur \href{https://ulysse\_durand.gitlab.io/stagel3/Codecoq.theories.jeu.html\#Game_tenseur}{\faCode}
+\item les interactions de stratégies parallèles \href{https://ulysse\_durand.gitlab.io/stagel3/Codecoq.theories.compose.html\#parallele_stratOO}{\faCode}
 \end{itemize}
-
-TODOCOQLINK
 
 Il a fallu tout de même prouver qu'une structure d'événement tenseur est une
 structure d'événements (plus compliqué) et qu'un jeu dual est bien un jeu.
@@ -512,7 +512,7 @@ $A_{\backslash a}$ le jeu résiduel de $A$ en $a$.
 
 \end{answer}
 
-Un jeu résiduel est un jeu, c'est montré en Coq.TODOLINK
+Un jeu résiduel est un jeu, c'est montré en Coq \href{https://ulysse_durand.gitlab.io/stagel3/Codecoq.theories.residu.html#resES}{\faCode}.
 \\
 
 Pour faire respecter cette alternance entre coups positifs et négatifs dans
@@ -527,7 +527,7 @@ Nous ne considérerons que les parties finissant par un coup positif, c'est pour
 commencent par un coup négatif.
 
 
-\begin{answer}{Definition Coq : Les parties}
+\begin{answer}{Definition Coq : Les parties \href{https://ulysse_durand.gitlab.io/stagel3/Codecoq.theories.strategy.html\#O\_play}{\faCode}}
 Les parties commençant par un coup négatif sont les OPlay
 et celles commençant par un coup positif sont les PPlay.
 
@@ -544,7 +544,7 @@ $\frac{\text{min}(a^+,G) \qquad s : \text{OPlay}_{G\backslash a}}
 
 Dans notre code Coq, nous définissons aussi directement les parties sur un jeu
 $A\vdash B$ pour faciliter les manipulations ultérieures. On aura alors les types
-inductifs $\text{OPlay}_2$ et les $\text{PPlay}_2$.
+inductifs $\text{OPlay}_2$ et les $\text{PPlay}_2$ \href{https://ulysse_durand.gitlab.io/stagel3/Codecoq.theories.jeuthese.html\#O\_play2}{\faCode}.
 
 
 \subsection{Définition de stratégies}
@@ -558,7 +558,7 @@ On définit l'ordre préfixe sur les parties commençant
 par un coup négatif et l'ordre préfixe sur les parties commençant par un coup
 positif.
 
-\begin{answer}{Définition Coq : Ordre préfixe sur les parties.}
+\begin{answer}{Définition Coq : Ordre préfixe sur les parties \href{https://ulysse_durand.gitlab.io/stagel3/Codecoq.theories.strategy.html\#prefixO}{\faCode}}
 $\sqsubseteq^- \subset \text{OPlay}^2 \qquad \sqsubseteq^+ \subset \text{PPlay}^2$
 
 $\frac{s : \text{OPlay}}{\epsilon \sqsubseteq^- s} \sqsubseteq^-_\epsilon$
@@ -571,7 +571,7 @@ $\frac{s : \text{OPlay} \qquad s' : \text{OPlay} \qquad s \sqsubseteq^- s'}
 \end{answer}
 
 On vient aussi à adapter cette définition sur $\text{OPlay}_2^2$ pour l'ordre
-préfixe sur les parties sur un jeu $A\vdash B$.\\
+préfixe sur les parties sur un jeu $A\vdash B$ \href{https://ulysse_durand.gitlab.io/stagel3/Codecoq.theories.jeuthese.html\#prefixO2}{\faCode}.\\
 
 
 Il nous reste le déterminisme. Pour ce faire, nous allons le caractériser par
@@ -581,7 +581,7 @@ C'est la relation de cohérence, elle est définie ci-après, et la preuve (pas
 en Coq) de l'équivalence avec le déterminisme est donnée en annexe,
 c'est la preuve 2.
 
-\begin{answer}{Définition Coq : Cohérence entre deux parties}
+\begin{answer}{Définition Coq : Cohérence entre deux parties \href{https://ulysse_durand.gitlab.io/stagel3/Codecoq.theories.strategy.html\#coherentO}{\faCode}}
 $\text{Coh}^- \subset \text{OPlay}^2 \qquad \text{Coh}^+ \subset \text{PPlay}^2$
 
 $\frac{s:\text{Oplay}}{\text{Coh}^-(\epsilon,s)} \text{Coh}^-_{\epsilon,l} \qquad
@@ -598,8 +598,12 @@ $\frac{s : \text{PPlay} \qquad s':\text{PPlay} \qquad \text{Coh}^+(s,s')}
 
 \end{answer}
 
+On adapte aussi cette définition pour la cohérence entre les $\text{OPlay}_2$ et les
+$\text{PPlay}_2$ \href{https://ulysse_durand.gitlab.io/stagel3/Codecoq.theories.jeuthese.html\#coherentO2}{\faCode}.
 
-Nos stratégies sont maintenant bien définies.TODOCOQLINK
+
+Nos stratégies sont maintenant bien définies \href{https://ulysse_durand.gitlab.io/stagel3/Codecoq.theories.strategy.html#strategy}{\faCode}.
+Les stratégies sur les jeux $A\vdash B$ aussi \href{https://ulysse_durand.gitlab.io/stagel3/Codecoq.theories.jeuthese.html#strategy2O}{\faCode}.
 
 \subsection{Composition de stratégies}
 
@@ -639,7 +643,7 @@ nous sera utile pour définir les interactions inductivement.
 En s'aidant de ce diagramme, on peut faire une définition inductive mutuelle
 pour nos interactions, entre les interactions dans les états OOO, POP et OPP.
 
-\begin{answer}{Définition Coq : Interactions}
+\begin{answer}{Définition Coq : Interactions \href{https://ulysse_durand.gitlab.io/stagel3/Codecoq.theories.interactions.html\#OOO\_int}{\faCode}}
 OOOInt \qquad OPPInt \qquad POPInt
 
 
@@ -657,31 +661,32 @@ $\frac{s : OOOInt \qquad c^+ : C}{c^+ s : OPPInt} cOOO \qquad
 
 Après avoir adapté les définitions de parties aux jeux $A\vdash B$
 nous définissons aussi les restrictions d'interactions sur $A, B$ et $C$
-aux parties $A\vdash B, B\vdash C, A\vdash C$. TODOCOQLINK
+aux parties $A\vdash B, B\vdash C, A\vdash C$ \href{https://ulysse_durand.gitlab.io/stagel3/Codecoq.theories.interactions.html\#restriction\_lm\_OOO}{\faCode}.
 
 Cette déinition inductive d'interactions est bien équivalente à celle vue
 plus tôt car on arrive à construire des fonction de restriction d'interaction
 qui ont le bon type ($\text{OOOInt} \rightarrow \text{OPlay}_2$ par exemple).
 
-On définit aussi naturellement la relation de préfixe sur les interactions. TODOCOQLINK
+On définit aussi naturellement la relation de préfixe sur les interactions \href{https://ulysse_durand.gitlab.io/stagel3/Codecoq.theories.interactions.html\#prefixOOO}{\faCode}.
 
 En plus de aussi fournir une définition des stratégies sur les jeux
 $A\vdash B$ plus manipulables, on définit les stratégies résiduelles.
 
-\begin{answer}{Stratégie résiduelle}
+\begin{answer}{Stratégie résiduelle \href{https://ulysse_durand.gitlab.io/stagel3/Codecoq.theories.residustrat.html\#residu\_stratO\_l}{\faCode}}
 Une stratégie residuelle $\sigma_{\backslash a}$ est une stratégie sur le jeu
 $A\backslash a$ telle que
 
 $s \in \sigma_{\backslash a} \iff as \in \sigma$
 \end{answer}
-TODOCOQLINK
+On se retouve à définir alors deux définitions de stratégie résiduelle suivant si
+l'événement exclu est dans le jeu de gauche ou de droite.
 
 Pour faire la preuve du déterminisme d'une stratégie composée, il a fallu aussi
 définie la relation de cohérence sur les interactions, de manière comparable à
-la manière dont ça a été défini sur les parties. TODOLINK
+la manière dont ça a été défini sur les parties. \href{https://ulysse_durand.gitlab.io/stagel3/Codecoq.theories.interactions.html\#CohOOO}{\faCode}
 
 Enfin, il nous a fallu entre autres prouver que l'ensemble des interactions sur les
-stratégies parallèles est stable par préfixe. TODOCOQLINK
+stratégies parallèles est stable par préfixe. \href{https://ulysse_durand.gitlab.io/stagel3/Codecoq.theories.compose.html\#prefixe\_donc\_paralleleOO}{\faCode}
 
 \newpage
 \section{Conclusion}
@@ -690,6 +695,11 @@ En soit le travail fourni ici ne prouve pas grand chose tant que l'on n'a pas
 fait de "sanity check", c'est à dire des preuves que les définitions inductives
 que l'on a construit correspondent bien aux définitions ensemblistes
 (Quelques uns de ces sanitycheck sont dans le fichier sanitycheck.v).
+
+Il ne faut pas oublier qu'il y a un Admitted et il y a aussi des chances qu'une
+des définitions inductives soit mauvaise, celle de la cohérence entre deux parties
+sur un jeu $A\vdash B$. Il manque des constructeurs et je n'ai eu le temps de
+comprendre comme il faut pourquoi ils manquent.
 
 Il faut aussi rappeler que je ne suis pas parti de rien pour ce travail,
 Etienne Miquey avait déjà bien avancé les idées, et son travail en cours
@@ -716,8 +726,6 @@ check à faire et ensuite il faudra prouver que la composition de stratégies es
 associative, définir Copycat et montrer que c'est le neutre de la composition,
 et même pourquoi pas aller jusqu'à montrer que la catégorie ainsi construite est
 une catégorie cartésienne fermée.
-
-
 
 \newpage
 \section{Annexes}

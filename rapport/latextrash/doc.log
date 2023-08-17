@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.21)  17 AUG 2023 11:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.21)  17 AUG 2023 12:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1122,93 +1122,93 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 {/usr/local/texlive/2023basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 153--170
+Underfull \hbox (badness 10000) in paragraph at lines 155--172
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 176--189
+Underfull \hbox (badness 10000) in paragraph at lines 178--191
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 192--197
+Underfull \hbox (badness 10000) in paragraph at lines 194--199
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 205--210
+Underfull \hbox (badness 10000) in paragraph at lines 207--212
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 218--234
+Underfull \hbox (badness 10000) in paragraph at lines 220--236
 
  []
 
 [4]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 237.
+(hyperref)                than one, level fixed on input line 239.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 239--243
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 248--257
+Underfull \hbox (badness 10000) in paragraph at lines 241--245
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 262--271
+Underfull \hbox (badness 10000) in paragraph at lines 250--259
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 264--273
 
  []
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 272--275
+Underfull \hbox (badness 10000) in paragraph at lines 274--277
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 294--314
+Underfull \hbox (badness 10000) in paragraph at lines 296--316
 
  []
 
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 317--322
+Underfull \hbox (badness 10000) in paragraph at lines 319--324
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 327--334
+Underfull \hbox (badness 10000) in paragraph at lines 329--336
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 343--368
+Underfull \hbox (badness 10000) in paragraph at lines 345--370
 
  []
 
 [7]
-Overfull \hbox (4.0156pt too wide) in paragraph at lines 380--383
+Overfull \hbox (4.0156pt too wide) in paragraph at lines 382--385
 []\OT1/cmr/m/n/12 Apr^^Res avoir d^^Sefini $[][]$ et $\OMS/cmsy/m/n/12 ^^N$\OT1
 /cmr/m/n/12 , il nous restera ^^Ra prou-ver que avec ces d^^Sefinitions,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 394--399
+Underfull \hbox (badness 10000) in paragraph at lines 396--401
 
  []
 
 [8]
-Underfull \hbox (badness 10000) in paragraph at lines 410--419
+Underfull \hbox (badness 10000) in paragraph at lines 412--421
 
  []
 
 
-Overfull \hbox (35.31555pt too wide) in paragraph at lines 420--423
+Overfull \hbox (35.31555pt too wide) in paragraph at lines 422--425
 []\OT1/cmr/m/n/12 (Pour $\OML/cmm/m/it/12 u \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 
 u[]u[] [] u[]; u \U/msa/m/n/12 ^^V \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 A; B\OT1/c
 mr/m/n/12 ) := (\OML/cmm/m/it/12 u[]\OT1/cmr/m/n/12 )[]$ o^^Ru $\OML/cmm/m/it/1
@@ -1217,47 +1217,47 @@ mr/m/n/12 ) := (\OML/cmm/m/it/12 u[]\OT1/cmr/m/n/12 )[]$ o^^Ru $\OML/cmm/m/it/1
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 420--423
+Underfull \hbox (badness 10000) in paragraph at lines 422--425
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 424--426
+Underfull \hbox (badness 10000) in paragraph at lines 426--428
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 430--433
+Underfull \hbox (badness 10000) in paragraph at lines 432--435
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 436--439
+Underfull \hbox (badness 10000) in paragraph at lines 438--441
 
  []
 
 [9]
-Overfull \hbox (16.21378pt too wide) in paragraph at lines 450--450
+Overfull \hbox (16.21378pt too wide) in paragraph at lines 452--452
 []\OT1/cmr/bx/n/17.28 D^^Sefinitions ^^Sequivalentes ma-nip-u-la-bles en Coq 
  []
 
 
-Overfull \hbox (4.82646pt too wide) in paragraph at lines 452--455
+Overfull \hbox (4.82646pt too wide) in paragraph at lines 454--457
 \OT1/cmr/m/n/12 Pour faire du Coq nous al-lons pr^^Sef^^Serer des d^^Sefinition
 s in-duc-tives aux d^^Sefinitions
  []
 
 LaTeX Font Info:    Trying to load font information for U+fontawesomefree0 on i
-nput line 460.
+nput line 462.
 
 (/usr/local/texlive/2023basic/texmf-dist/tex/latex/fontawesome5/ufontawesomefre
-e0.fd) [10{/usr/local/texlive/2023basic/texmf-dist/fonts/enc/dvips/fontawesome5
-/fa5free0.enc}]
+e0.fd)
 Underfull \hbox (badness 10000) in paragraph at lines 491--514
 
  []
 
-
+[10{/usr/local/texlive/2023basic/texmf-dist/fonts/enc/dvips/fontawesome5/fa5fre
+e0.enc}]
 Underfull \hbox (badness 10000) in paragraph at lines 515--517
 
  []
@@ -1283,44 +1283,44 @@ Underfull \hbox (badness 10000) in paragraph at lines 584--600
  []
 
 (../figures/diagpol.tikz) (../figures/diagpolbis.tikz) [13]
-Underfull \hbox (badness 10000) in paragraph at lines 642--657
+Underfull \hbox (badness 10000) in paragraph at lines 646--661
 
  []
 
-
-Overfull \hbox (8.7362pt too wide) in paragraph at lines 658--661
+[14]
+Overfull \hbox (8.7362pt too wide) in paragraph at lines 662--665
 []\OT1/cmr/m/n/12 Apr^^Res avoir adapt^^Se les d^^Sefinitions de par-ties aux j
 eux $\OML/cmm/m/it/12 A \OMS/cmsy/m/n/12 ` \OML/cmm/m/it/12 B$ \OT1/cmr/m/n/12 
 nous d^^Sefinissons
  []
 
-[14] [15]
-Underfull \hbox (badness 10000) in paragraph at lines 694--698
+[15]
+Underfull \hbox (badness 10000) in paragraph at lines 704--708
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 710--713
+Underfull \hbox (badness 10000) in paragraph at lines 720--723
 
  []
 
 [16] [17]
-Underfull \hbox (badness 10000) in paragraph at lines 727--734
+Underfull \hbox (badness 10000) in paragraph at lines 735--742
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 738--740
+Underfull \hbox (badness 10000) in paragraph at lines 746--748
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 735--771
+Underfull \hbox (badness 10000) in paragraph at lines 743--779
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 725--772
+Underfull \hbox (badness 10000) in paragraph at lines 733--780
 
  []
 
@@ -1338,7 +1338,7 @@ Package logreq Info: Writing requests to 'doc.run.xml'.
 Here is how much of TeX's memory you used:
  34959 strings out of 477174
  690626 string characters out of 5816070
- 1870769 words of memory out of 5000000
+ 1871769 words of memory out of 5000000
  54972 multiletter control sequences out of 15000+600000
  523561 words of font info for 73 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
@@ -1361,10 +1361,10 @@ sr/local/texlive/2023basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><
 sy6.pfb></usr/local/texlive/2023basic/texmf-dist/fonts/type1/public/amsfonts/cm
 /cmsy8.pfb></usr/local/texlive/2023basic/texmf-dist/fonts/type1/public/amsfonts
 /symbols/msam10.pfb>
-Output written on doc.pdf (21 pages, 216087 bytes).
+Output written on doc.pdf (21 pages, 217658 bytes).
 PDF statistics:
- 261 PDF objects out of 1000 (max. 8388607)
- 204 compressed objects within 3 object streams
+ 281 PDF objects out of 1000 (max. 8388607)
+ 224 compressed objects within 3 object streams
  39 named destinations out of 1000 (max. 500000)
  133 words of extra memory for PDF output out of 10000 (max. 10000000)
 
