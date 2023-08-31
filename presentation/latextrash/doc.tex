@@ -2,7 +2,9 @@
 \newcommand{\leauthor}{Ulysse Durand\\encadré par\\Etienne Miquey\\et\\Pierre Clairambault}
 
 \documentclass{beamer}
+\usepackage{tikzit}
 
+\setbeamertemplate{footline}[frame number]
 \usepackage[utf8]{inputenc}
 \usepackage{amssymb}
 \usepackage{amsmath}
@@ -10,6 +12,7 @@
 \usepackage{enumitem}
 \usepackage{bbold}
 \usepackage[xcolor,leftbars]{changebar}
+\usepackage{ebproof}
 \setlength{\parindent}{0pt}
 \setcounter{secnumdepth}{1}
 \newenvironment{myindentpar}
@@ -68,12 +71,353 @@
 
 \maketitle
 \begin{frame}
-Stage L3
+\frametitle{Sommaire}
+
+\begin{itemize}
+\item Définitions ensemblistes
+\item Définitions Coq et preuves
+\end{itemize}
 \end{frame}
+
+
 \begin{frame}
-\frametitle{ test}
+\frametitle{Structure d'événement (S.E.) :}
 
+$E = (|E|, \leq_E, \#_E)$
+\begin{itemize}
+\item $\leq_E$ (la causalité) : ordre partiel sur $E$
+\item $\#_E$ (le conflit) : relation binaire symétrique irréflexive
+\begin{itemize}
+\item à causes finies
+\item qui vérifie l'axiome de vendetta
+\end{itemize}
+\end{itemize}
+\pause
 
-testt
+\tikzfig{ex1}
+
+$\sim$ étant la relation de conflit immédiat et\\
+$\rightarrow$ la relation de causalité immédiate
 \end{frame}
+
+\begin{frame}
+\frametitle{Configuration :}
+
+
+$x$ fini $\subset |E|$
+\begin{itemize}
+\item $x$ est fermé vers le bas
+\item $x$ est sans conflit
+\end{itemize}
+\pause
+
+Pour la S.E suivante
+
+\tikzfig{ex1}
+
+Voici quelques configurations :
+\begin{itemize}
+\item $\{1,3\}$
+\pause
+\item $\{1,4,5\}$
+\pause
+\item $\{1,2,3,4,6\}$
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Jeu :}
+
+$A$ une S.E munie d'une fonction
+
+$\text{pol}_A : |A| \rightarrow \{-, +\}$
+\pause
+
+Par exemple sur l'exemple précédent
+
+\tikzfig{ex1jeu}
+
+est un jeu qu'on appelera $J_0$
+\end{frame}
+
+\begin{frame}
+\frametitle{Partie :}
+
+Une partie sur $A$ est un mot $s = s_1 \dots s_n \in |A|^*$ qui est :
+\begin{itemize}
+\item valide (à chaque étape on a une configuration)
+
+\item non répétitive (on joue pas deux fois un événement)
+
+\item alternante
+
+\item négative (opposant commence)
+\end{itemize}
+\pause
+
+\tikzfig{ex1jeu}
+
+voici quelques parties
+\begin{itemize}
+\item $1236$
+\pause
+\item $1345$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Construction sur les jeux}
+
+Voici un autre jeu :
+\tikzfig{ex2}
+
+On l'appelera $(\mathbb{B} \rightarrow \mathbb{B})$
+
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Construction sur les jeux : jeu tenseur}
+
+Voici le jeu $J_0 \otimes (\mathbb{B} \rightarrow \mathbb{B})$
+
+\tikzfig{ex1jeu} \tikzfig{ex2}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Construction sur les jeux : jeu dual}
+
+Voici le jeu $J_0^\bot$
+
+\tikzfig{ex1dual}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Construction sur les jeux : jeu thèse}
+
+On définit $A\vdash B := A^\bot \otimes B$
+
+Voici le jeu $J_0\vdash (\mathbb{B} \rightarrow \mathbb{B})$
+
+\tikzfig{ex1dual} \tikzfig{ex2}
+\end{frame}
+
+\begin{frame}
+\frametitle{Stratégies}
+
+
+Une stratégie sur le jeu $A$ est $\sigma \subset \mathcal{P}(A)$ qui est
+\begin{itemize}
+\item non vide
+\item clos par préfixe pair
+\item déterministe :
+\begin{equation*} sa_1^+, sa_2^+ \in \sigma \implies a_1 = a_2 \end{equation*}
+Le joueur a au plus un choix de coup pour rester dans la stratégie
+
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemples de stratégies sur $J_0\vdash  (\mathbb{B} \rightarrow \mathbb{B})$}
+
+\tikzfig{ex1dual} \tikzfig{ex2}
+
+Voici quelques stratégies :
+\begin{itemize}
+\item $\{\epsilon,12,45, q_1 q_2\}$
+\pause
+\item $\{\epsilon,13,45\}$
+\pause
+\item $\{\epsilon,12,q_1 q_2\}$
+\end{itemize}
+
+\pause
+
+Elles sont sur un jeu tenseur, on peut les restreindre à un jeu :
+
+$\{\epsilon,12,45, q_1 q_2\} \upharpoonright (\mathbb{B} \rightarrow \mathbb{B}) = \{\epsilon, q_1 q_2\}$
+
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Catégories :}
+
+
+Une catégorie $\mathcal{C}$ est la donnée de
+\begin{itemize}
+\item Une classe d'objets $|\mathcal{C}|$
+\pause
+\item Pour chaque paire d'objets $A, B \in |\mathcal{C}|$, une classe de
+morphismes $\mathcal{C}(A,B)$
+\pause
+
+\item Pour chaque $A \in |\mathcal{C}|$, un morphisme
+$\text{id}_A \in \mathcal{C}(A,A)$
+\pause
+
+\item Une loi $\circ$ sur les morphismes\\
+$f \in \mathcal{C}(A,B)$, $g \in \mathcal{C}(B,C)$, alors
+$g \circ f \in \mathcal{C}(A,C)$\\
+telle que
+\pause
+\begin{itemize}
+\item $\circ$ est associative:
+\pause
+\item Pour tout A, $\text{id}_A$ est neutre pour $\circ$
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemple de catégorie des jeux et stratégies}
+
+Les objets sont les jeux
+
+Un morphisme de $A$ vers $B$ est une stratégie sur le jeu $A\vdash B$
+\pause
+\tikzfig{excat}
+
+\pause
+Nous verrons ce qu'est la composition de stratégies et la stratégie $cc_A$ pour un jeu $A \vdash A$.
+\end{frame}
+
+\begin{frame}
+\frametitle{Composition de stratégies :}
+
+
+$\sigma$ stratégie sur $A \vdash B$, $\tau$ stratégie sur $B \vdash C$
+
+$\sigma \circ \tau$ stratégie sur $A \vdash C$
+
+\tikzfig{excompose}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Composition de stratégies : Les interactions}
+
+Une interaction sur $A, B, C$ est donnée par une séquence
+$u \in (A \otimes B \otimes C)^*$ telle que
+\begin{itemize}
+\pause
+\item $u \upharpoonright (A, B)$ est une partie sur $(A \vdash B)$
+\item $u \upharpoonright (B, C)$ est une partie sur $(B \vdash C)$
+\item $u \upharpoonright (A, C)$ est une partie sur $(A \vdash C)$
+\end{itemize}
+
+$I(A,B,C)$ est l'ensemble des interactions sur A,B,C.
+\pause
+
+Sur l'exemple précédent, on a l'interaction $123\dots 789$
+et on a bien
+\begin{itemize}
+\item $12 \dots 89$ est une partie sur $A \vdash B$
+\item $23 \dots 78$ est une partie sur $B \vdash C$
+\item $13 \dots 79$ est une partie sur $A \vdash C$
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Composition de stratégies}
+
+
+$\sigma \mid\mid \tau$ : interactions qui respectent $\sigma$ et $\tau$\\
+($u \upharpoonright (A,B) \in \sigma$ et $u \upharpoonright (B,C) \in \tau$)
+\pause
+
+Alors la stratégie $\sigma \circ \tau$ est définie comme
+\begin{equation*}\{u \upharpoonright (A, C) \mid u \in \sigma \mid\mid \tau \}\end{equation*}
+\pause
+
+Dans l'exemple précédent, $123\dots 789 \in \sigma \mid\mid \tau$, donc $13\dots79 \in \sigma \circ \tau$
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Stratégie copycat}
+
+$cc_A$ stratégie sur $A\vdash A$ neutre pour la composition
+
+\tikzfig{ex1jeu} \tikzfig{ex1dual}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Définition inductive de parties : Jeu résiduel}
+
+
+Le jeu $J_0$ :
+
+\tikzfig{ex1jeu}
+
+Le jeu $J_0\backslash 4$ :
+
+\tikzfig{ex1resid}
+
+On enlève 4 et les événements en conflit avec 4.
+\end{frame}
+
+\begin{frame}
+\frametitle{Définition inductive de parties}
+
+Parties commençant par un coup négatif : OPlay\\
+Parties commençant par un coup positif : PPlay.
+
+$\frac{}{\epsilon : \text{OPlay}_G}\epsilon_0$
+
+$\frac{\text{min}(a^-,G) \qquad s : \text{PPlay}_{G\backslash a}}
+{a^-s : \text{OPlay}_G}\text{OPlay}_i$
+
+$\frac{\text{min}(a^+,G) \qquad s : \text{OPlay}_{G\backslash a}}
+{a^+s : \text{PPlay}_G}\text{PPlay}_i$
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemple de partie}
+
+
+Pour construire $1236 : \text{OPlay}_{J_0}$
+\begin{prooftree}
+\hypo{}
+\infer1{
+    \epsilon : \text{OPlay}_{J_0\backslash 1,2,3,6}
+}
+\hypo{\text{min}(6,J_0 \backslash 1,2,3)}
+\infer2{
+    6 : \text{PPlay}_{J_0 \backslash 1,2,3}
+}
+\hypo{\text{min}(3,J_0 \backslash 1,2)}
+\infer2{
+    36 : \text{OPlay}_{J_0 \backslash 1,2}
+}
+\end{prooftree}
+\begin{prooftree}
+\hypo{36 : \text{OPlay}_{J_0 \backslash 1,2}}
+\hypo{\text{min}(2,J_0 \backslash 1)}
+\infer2{
+    236:\text{PPlay}_{J_0 \backslash 1}
+}
+\hypo{\qquad \text{min}(1,J_0)}
+\infer2{
+    1236 : \text{OPlay}_{J_0}
+}
+\end{prooftree}
+\tikzfig{ex1proof}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Cohérence entre parties (déterminisme de stratégie)}
+
+
+\end{frame}
+
 \end{document}

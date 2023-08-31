@@ -1,0 +1,19 @@
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=none] (0) at (3, 2) {$q_1^-$};
+		\node [style=none] (1) at (2, 0) {$tt_1^+$};
+		\node [style=none] (2) at (4, 0) {$ff_1^+$};
+		\node [style=none] (3) at (-1, -2) {$q_2^+$};
+		\node [style=none] (4) at (-2, -4) {$tt_2^-$};
+		\node [style=none] (5) at (0, -4) {$ff_2^-$};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw [style=fleche] (0) to (1);
+		\draw [style=fleche] (0) to (2);
+		\draw [style=fleche] (0) to (3);
+		\draw [style=fleche] (3) to (4);
+		\draw [style=fleche] (3) to (5);
+        \draw [style=conflit] (1) to (2);
+        \draw [style=conflit] (4) to (5);
+	\end{pgfonlayer}
+\end{tikzpicture}

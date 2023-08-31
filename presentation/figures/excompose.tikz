@@ -1,0 +1,51 @@
+\begin{tikzpicture}
+        \node (-1) at (0, 8) {$A^\bot$};
+        \node (-2) at (2, 8) {$B$};
+        \node (-3) at (4, 8) {$B^\bot$};
+        \node (-4) at (6, 8) {$C$};
+
+        \node (-5) at (10, 8) {$A^\bot$};
+        \node (-6) at (12, 8) {$C$};
+
+        \node (1) at (0, 6) {$1^-$};
+        \node (101) at (10, 6) {$1^-$};
+        \pause
+
+        \node (21) at (2, 5) {$2^+$};
+        \draw [style=fleche] (1) to (21);
+        \node (22) at (4, 5) {$2^-$};
+        \pause
+
+        \node (3) at (6, 4) {$3^+$};
+        \draw [style=fleche] (22) to (3);
+
+        \node (103) at (12, 4) {$3^+$};
+        \draw [style=fleche] (101) to (103);
+        \pause
+
+        \node (-11) at (0, 3) {$\vdots$};
+        \node (-12) at (2, 3) {$\vdots$};
+        \node (-13) at (4, 3) {$\vdots$};
+        \node (-14) at (6, 3) {$\vdots$};
+
+        \node (-15) at (10, 3) {$\vdots$};
+        \node (-16) at (12, 3) {$\vdots$};
+        \pause
+
+        \node (7) at (6, 2) {$7^-$};
+        \node (107) at (12, 2) {$7^-$};
+        \pause
+
+        \node (81) at (4, 1) {$8^+$};
+        \draw [style=fleche] (7) to (81);
+        \node (82) at (2, 1) {$8^-$};
+        \pause
+
+        \node (9) at (0, 0) {$9^+$};
+        \draw [style=fleche] (82) to (9);
+
+        \node (109) at (10, 0) {$9^+$};
+        \draw [style=fleche] (107) to (109);
+
+
+\end{tikzpicture}

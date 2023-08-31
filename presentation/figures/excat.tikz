@@ -1,0 +1,16 @@
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=none] (1) at (0, 4) {$J_0$};
+		\node [style=none] (2) at (0, 0) {$G$};
+		\node [style=none] (3) at (4, 0) {$(\mathbb{B} \rightarrow \mathbb{B})$};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw [style=fleche] (1) to node [left] {$\tau$}(2) ;
+		\draw [style=fleche] (2) to node [below] {$\sigma$}(3) ;
+		\draw [style=fleche] (1) to node [above right] {$\sigma \circ \tau$}(3) ;
+
+        \draw [style=fleche, loop] (1) to node [above left] {$cc_{J_0}$} (1) ;
+        \draw [style=fleche, in=-45, out=-135, loop] (2) to node [below] {$cc_{G}$} (2) ;
+        \draw [style=fleche, in=-45, out=-135, loop] (3) to node [below] {$cc_{(\mathbb{B} \rightarrow \mathbb{B})}$} (3) ;
+	\end{pgfonlayer}
+\end{tikzpicture}

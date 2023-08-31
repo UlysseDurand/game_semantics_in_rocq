@@ -1,4 +1,287 @@
-Stage L3
------ test
+----- Sommaire
+---i
+#### Définitions ensemblistes
+#### Définitions Coq et preuves
+---i!
+-----
 
-testt
+----- Structure d'événement (S.E.) :
+$E = (|E|, \leq_E, \#_E)$
+---i
+#### $\leq_E$ (la causalité) : ordre partiel sur $E$
+#### $\#_E$ (le conflit) : relation binaire symétrique irréflexive
+---i
+#### à causes finies
+#### qui vérifie l'axiome de vendetta
+---i!
+---i!
+\pause
+
+!ftikzex1!
+
+$\sim$ étant la relation de conflit immédiat et\\
+$\->$ la relation de causalité immédiate
+-----
+----- Configuration :
+
+$x$ fini $\subset |E|$
+---i
+#### $x$ est fermé vers le bas
+#### $x$ est sans conflit
+---i!
+\pause
+
+Pour la S.E suivante
+
+!ftikzex1!
+
+Voici quelques configurations :
+---i
+#### $\{1,3\}$
+\pause
+#### $\{1,4,5\}$
+\pause
+#### $\{1,2,3,4,6\}$
+---i!
+
+-----
+----- Jeu :
+$A$ une S.E munie d'une fonction
+
+$\text{pol}_A : |A| \-> \{-, +\}$
+\pause
+
+Par exemple sur l'exemple précédent
+
+!ftikzex1jeu!
+
+est un jeu qu'on appelera $J_0$
+-----
+----- Partie :
+Une partie sur $A$ est un mot $s = s_1 \dots s_n \in |A|^*$ qui est :
+---i
+#### valide (à chaque étape on a une configuration)
+
+#### non répétitive (on joue pas deux fois un événement)
+
+#### alternante
+
+#### négative (opposant commence)
+---i!
+\pause
+
+!ftikzex1jeu!
+
+voici quelques parties
+---i
+#### $1236$
+\pause
+#### $1345$
+---i!
+-----
+----- Construction sur les jeux
+Voici un autre jeu :
+!ftikzex2!
+
+On l'appelera $(\mathbb{B} \-> \mathbb{B})$
+
+
+-----
+----- Construction sur les jeux : jeu tenseur
+Voici le jeu $J_0 \otimes (\mathbb{B} \-> \mathbb{B})$
+
+!ftikzex1jeu! !ftikzex2!
+-----
+
+----- Construction sur les jeux : jeu dual
+Voici le jeu $J_0^\bot$
+
+!ftikzex1dual!
+
+-----
+----- Construction sur les jeux : jeu thèse
+On définit $A\vdash B := A^\bot \otimes B$
+
+Voici le jeu $J_0\vdash (\mathbb{B} \-> \mathbb{B})$
+
+!ftikzex1dual! !ftikzex2!
+-----
+----- Stratégies
+
+Une stratégie sur le jeu $A$ est $\sigma \subset \mathcal{P}(A)$ qui est
+---i
+#### non vide
+#### clos par préfixe pair
+#### déterministe :
+!equu! sa_1^+, sa_2^+ \in \sigma \implies a_1 = a_2 !equu!
+Le joueur a au plus un choix de coup pour rester dans la stratégie
+
+---i!
+
+-----
+----- Exemples de stratégies sur $J_0\vdash  (\mathbb{B} \-> \mathbb{B})$
+!ftikzex1dual! !ftikzex2!
+
+Voici quelques stratégies :
+---i
+#### $\{\epsilon,12,45, q_1 q_2\}$
+\pause
+#### $\{\epsilon,13,45\}$
+\pause
+#### $\{\epsilon,12,q_1 q_2\}$
+---i!
+
+\pause
+
+Elles sont sur un jeu tenseur, on peut les restreindre à un jeu :
+
+$\{\epsilon,12,45, q_1 q_2\} \upharpoonright (\mathbb{B} \-> \mathbb{B}) = \{\epsilon, q_1 q_2\}$
+
+
+-----
+----- Catégories :
+
+Une catégorie $\mathcal{C}$ est la donnée de
+---i
+#### Une classe d'objets $|\mathcal{C}|$
+\pause
+#### Pour chaque paire d'objets $A, B \in |\mathcal{C}|$, une classe de
+morphismes $\mathcal{C}(A,B)$
+\pause
+
+#### Pour chaque $A \in |\mathcal{C}|$, un morphisme
+$\text{id}_A \in \mathcal{C}(A,A)$
+\pause
+
+#### Une loi $\circ$ sur les morphismes\\
+$f \in \mathcal{C}(A,B)$, $g \in \mathcal{C}(B,C)$, alors
+$g \circ f \in \mathcal{C}(A,C)$\\
+telle que
+\pause
+---i
+#### $\circ$ est associative:
+\pause
+#### Pour tout A, $\text{id}_A$ est neutre pour $\circ$
+---i!
+---i!
+-----
+----- Exemple de catégorie des jeux et stratégies
+Les objets sont les jeux
+
+Un morphisme de $A$ vers $B$ est une stratégie sur le jeu $A\vdash B$
+\pause
+!ftikzexcat!
+
+\pause
+Nous verrons ce qu'est la composition de stratégies et la stratégie $cc_A$ pour un jeu $A \vdash A$.
+-----
+----- Composition de stratégies :
+
+$\sigma$ stratégie sur $A \vdash B$, $\tau$ stratégie sur $B \vdash C$
+
+$\sigma \circ \tau$ stratégie sur $A \vdash C$
+
+!ftikzexcompose!
+
+-----
+----- Composition de stratégies : Les interactions
+Une interaction sur $A, B, C$ est donnée par une séquence
+$u \in (A \otimes B \otimes C)^*$ telle que
+---i
+\pause
+#### $u \upharpoonright (A, B)$ est une partie sur $(A \vdash B)$
+#### $u \upharpoonright (B, C)$ est une partie sur $(B \vdash C)$
+#### $u \upharpoonright (A, C)$ est une partie sur $(A \vdash C)$
+---i!
+
+$I(A,B,C)$ est l'ensemble des interactions sur A,B,C.
+\pause
+
+Sur l'exemple précédent, on a l'interaction $123\dots 789$
+et on a bien
+---i
+#### $12 \dots 89$ est une partie sur $A \vdash B$
+#### $23 \dots 78$ est une partie sur $B \vdash C$
+#### $13 \dots 79$ est une partie sur $A \vdash C$
+---i!
+
+-----
+----- Composition de stratégies
+
+$\sigma \mid\mid \tau$ : interactions qui respectent $\sigma$ et $\tau$\\
+($u \upharpoonright (A,B) \in \sigma$ et $u \upharpoonright (B,C) \in \tau$)
+\pause
+
+Alors la stratégie $\sigma \circ \tau$ est définie comme
+!equu!\{u \upharpoonright (A, C) \mid u \in \sigma \mid\mid \tau \}!equu!
+\pause
+
+Dans l'exemple précédent, $123\dots 789 \in \sigma \mid\mid \tau$, donc $13\dots79 \in \sigma \circ \tau$
+
+-----
+
+----- Stratégie copycat
+$cc_A$ stratégie sur $A\vdash A$ neutre pour la composition
+
+!ftikzex1jeu! !ftikzex1dual!
+
+-----
+----- Définition inductive de parties : Jeu résiduel
+
+Le jeu $J_0$ :
+
+!ftikzex1jeu!
+
+Le jeu $J_0\backslash 4$ :
+
+!ftikzex1resid!
+
+On enlève 4 et les événements en conflit avec 4.
+-----
+----- Définition inductive de parties
+Parties commençant par un coup négatif : OPlay\\
+Parties commençant par un coup positif : PPlay.
+
+$\frac{}{\epsilon : \text{OPlay}_G}\epsilon_0$
+
+$\frac{\text{min}(a^-,G) \qquad s : \text{PPlay}_{G\backslash a}}
+{a^-s : \text{OPlay}_G}\text{OPlay}_i$
+
+$\frac{\text{min}(a^+,G) \qquad s : \text{OPlay}_{G\backslash a}}
+{a^+s : \text{PPlay}_G}\text{PPlay}_i$
+
+-----
+----- Exemple de partie
+
+Pour construire $1236 : \text{OPlay}_{J_0}$
+\begin{prooftree}
+\hypo{}
+\infer1{
+    \epsilon : \text{OPlay}_{J_0\backslash 1,2,3,6}
+}
+\hypo{\text{min}(6,J_0 \backslash 1,2,3)}
+\infer2{
+    6 : \text{PPlay}_{J_0 \backslash 1,2,3}
+}
+\hypo{\text{min}(3,J_0 \backslash 1,2)}
+\infer2{
+    36 : \text{OPlay}_{J_0 \backslash 1,2}
+}
+\end{prooftree}
+\begin{prooftree}
+\hypo{36 : \text{OPlay}_{J_0 \backslash 1,2}}
+\hypo{\text{min}(2,J_0 \backslash 1)}
+\infer2{
+    236:\text{PPlay}_{J_0 \backslash 1}
+}
+\hypo{\qquad \text{min}(1,J_0)}
+\infer2{
+    1236 : \text{OPlay}_{J_0}
+}
+\end{prooftree}
+!ftikzex1proof!
+
+-----
+----- Cohérence entre parties (déterminisme de stratégie)
+
+-----

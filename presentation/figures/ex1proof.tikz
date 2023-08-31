@@ -1,0 +1,18 @@
+\begin{tikzpicture}
+        \pause
+		\node [style=none] (6) at (0, 0) {$6^-$};
+        \pause
+		\node [style=none] (3) at (2, 2) {$3^+$};
+		\node [style=none] (4) at (6, 2) {$4^-$};
+		\node [style=none] (5) at (6, 0) {$5^+$};
+		\draw [style=fleche] (3) to (6);
+		\draw [style=fleche] (4) to (5);
+        \draw [style=conflit] (3) to (4);
+        \pause
+		\node [style=none] (2) at (-2, 2) {$2^+$};
+		\draw [style=fleche] (2) to (6);
+        \pause
+		\node [style=none] (1) at (0, 4) {$1^-$};
+		\draw [style=fleche] (1) to (2);
+		\draw [style=fleche] (1) to (3);
+\end{tikzpicture}

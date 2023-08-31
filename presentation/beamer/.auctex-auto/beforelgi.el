@@ -4,6 +4,7 @@
    (TeX-add-to-alist 'LaTeX-provided-package-options
                      '(("inputenc" "utf8") ("changebar" "xcolor" "leftbars")))
    (add-to-list 'LaTeX-verbatim-environments-local "lstlisting")
+   (add-to-list 'LaTeX-verbatim-environments-local "semiverbatim")
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "href")
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperimage")
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperbaseurl")
@@ -24,6 +25,7 @@
     "enumitem"
     "bbold"
     "changebar"
+    "ebproof"
     "listings"
     "hyperref")
    (TeX-add-symbols
