@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.21)  31 AUG 2023 03:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.21)  1 SEP 2023 10:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1191,60 +1191,60 @@ Dictionary: translator-theorem-dictionary, Language: English
 
 {/usr/local/texlive/2023basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2
 
+] [3
+
 ]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 101
+LaTeX Font Info:    Trying to load font information for U+msa on input line 106
 .
 
 (/usr/local/texlive/2023basic/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 101
+LaTeX Font Info:    Trying to load font information for U+msb on input line 106
 .
 
 (/usr/local/texlive/2023basic/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-(../figures/ex1.tikz) [3
+(../figures/ex1.tikz) [4
 
-] (../figures/ex1.tikz) [4
+] (../figures/ex1.tikz) [5
 
 ] (../figures/ex1.tikz)
-[5
-
-] (../figures/ex1.tikz) [6
+[6
 
 ] (../figures/ex1.tikz) [7
 
-] (../figures/ex1.tikz)
-[8
+] (../figures/ex1.tikz) [8
 
-] (../figures/ex1jeu.tikz) [9
+] (../figures/ex1.tikz)
+[9
 
 ] (../figures/ex1jeu.tikz) [10
 
-]
-(../figures/ex1jeu.tikz) [11
-
-] (../figures/ex1jeu.tikz) [12
+] (../figures/ex1jeu.tikz) [11
 
 ]
-(../figures/ex1jeu.tikz) [13
+(../figures/ex1jeu.tikz) [12
+
+] (../figures/ex1jeu.tikz) [13
+
+]
+(../figures/ex1jeu.tikz) [14
 
 ] (../figures/ex2.tikz)
 LaTeX Font Info:    Trying to load font information for U+bbold on input line 1
-78.
+83.
 
-(/usr/local/texlive/2023basic/texmf-dist/tex/latex/bbold/Ubbold.fd) [14
+(/usr/local/texlive/2023basic/texmf-dist/tex/latex/bbold/Ubbold.fd) [15
 
 ]
-(../figures/ex1jeu.tikz) (../figures/ex2.tikz) [15
+(../figures/ex1jeu.tikz) (../figures/ex2.tikz) [16
 
-] (../figures/ex1dual.tikz)
-[16
+] (../figures/ex1jeu.tikz)
+(../figures/ex2.tikz) [17
 
-] (../figures/ex1dual.tikz) (../figures/ex2.tikz) [17
-
-] [18
+] (../figures/ex1dual.tikz) [18
 
 ]
 (../figures/ex1dual.tikz) (../figures/ex2.tikz) [19
@@ -1255,7 +1255,7 @@ LaTeX Font Info:    Trying to load font information for U+bbold on input line 1
 ] (../figures/ex1dual.tikz) (../figures/ex2.tikz)
 [21
 
-] (../figures/ex1dual.tikz) (../figures/ex2.tikz) [22
+] [22
 
 ] [23
 
@@ -1263,8 +1263,7 @@ LaTeX Font Info:    Trying to load font information for U+bbold on input line 1
 
 ] [25
 
-]
-[26
+] [26
 
 ] [27
 
@@ -1272,34 +1271,34 @@ LaTeX Font Info:    Trying to load font information for U+bbold on input line 1
 
 ] (../figures/excat.tikz) [29
 
-] (../figures/excat.tikz) [30
+]
+(../figures/excat.tikz) [30
+
+] (../figures/excat.tikz) [31
 
 ]
-(../figures/excat.tikz) [31
+(../figures/excompose.tikz) [32
 
-] (../figures/excompose.tikz) [32
-
-]
-(../figures/excompose.tikz) [33
-
-] (../figures/excompose.tikz) [34
+] (../figures/excompose.tikz) [33
 
 ]
-(../figures/excompose.tikz) [35
+(../figures/excompose.tikz) [34
 
-] (../figures/excompose.tikz) [36
+] (../figures/excompose.tikz) [35
 
 ]
-(../figures/excompose.tikz) [37
+(../figures/excompose.tikz) [36
 
-] (../figures/excompose.tikz) [38
+] (../figures/excompose.tikz) [37
+
+]
+(../figures/excompose.tikz) [38
 
 ] [39
 
 ] [40
 
-]
-[41
+] [41
 
 ] [42
 
@@ -1307,27 +1306,109 @@ LaTeX Font Info:    Trying to load font information for U+bbold on input line 1
 
 ] [44
 
-] (../figures/ex1jeu.tikz) (../figures/ex1dual.tikz) [45
-
 ]
-(../figures/ex1jeu.tikz) (../figures/ex1resid.tikz) [46
+(../figures/ex1jeu.tikz) (../figures/ex1dual.tikz) [45
+
+] (../figures/ex1jeu.tikz) (../figures/ex1resid.tikz) [46
 
 ] [47
 
-]
-(../figures/ex1proof.tikz) [48
-
-] (../figures/ex1proof.tikz) [49
+] (../figures/ex1proof.tikz) [48
 
 ]
-(../figures/ex1proof.tikz) [50
+(../figures/ex1proof.tikz) [49
 
-] (../figures/ex1proof.tikz) [51
+] (../figures/ex1proof.tikz) [50
 
 ]
-(../figures/ex1proof.tikz) [52
+(../figures/ex1proof.tikz) [51
+
+] (../figures/ex1proof.tikz) [52
 
 ] [53
+
+] [54
+
+]
+(../figures/ex2.tikz) (../figures/ex1jeu.tikz) (../figures/ex1jeu.tikz)
+(../figures/diagpolbis.tikz) [55
+
+] (../figures/ex2.tikz) (../figures/ex1jeu.tikz) (../figures/ex1jeu.tikz) (../f
+igures/diagpolbis.tikz)
+Overfull \vbox (2.73703pt too high) detected at line 475
+ []
+
+[56
+
+] (../figures/ex2.tikz) (../figures/ex1jeu.tikz) (../figures/ex1jeu.tikz)
+(../figures/diagpolbis.tikz)
+Overfull \vbox (4.52094pt too high) detected at line 475
+ []
+
+[57
+
+] (../figures/ex2.tikz) (../figures/ex1jeu.tikz) (../figures/ex1jeu.tikz)
+(../figures/diagpolbis.tikz)
+Overfull \vbox (4.52094pt too high) detected at line 475
+ []
+
+[58
+
+] (../figures/ex2.tikz) (../figures/ex1jeu.tikz) (../figures/ex1jeu.tikz)
+(../figures/diagpolbis.tikz)
+Overfull \vbox (4.52094pt too high) detected at line 475
+ []
+
+[59
+
+] (../figures/ex2.tikz) (../figures/ex1jeu.tikz) (../figures/ex1jeu.tikz)
+(../figures/diagpolbis.tikz)
+Overfull \vbox (4.8662pt too high) detected at line 475
+ []
+
+[60
+
+] (../figures/ex2.tikz) (../figures/ex1jeu.tikz) (../figures/ex1jeu.tikz)
+(../figures/diagpolbis.tikz)
+Overfull \vbox (4.8662pt too high) detected at line 475
+ []
+
+[61
+
+] (../figures/ex2.tikz) (../figures/ex1jeu.tikz) (../figures/ex1jeu.tikz)
+(../figures/diagpolbis.tikz)
+Overfull \vbox (4.8662pt too high) detected at line 475
+ []
+
+[62
+
+] [63
+
+] (../figures/ex1dual.tikz) (../figures/ex2.tikz)
+(../figures/ex1dual.tikz) (../figures/ex2resq1.tikz) [64
+
+]
+(../figures/ex1dual.tikz) (../figures/ex2.tikz) (../figures/ex1dual.tikz)
+(../figures/ex2resq1.tikz) [65
+
+] [66
+
+] [67
+
+] [68
+
+] [69
+
+] [70
+
+] [71
+
+] [72
+
+] [73
+
+]
+[74
 
 ]
 \tf@nav=\write8
@@ -1348,10 +1429,10 @@ Package rerunfilecheck Info: File `doc.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 29927 strings out of 477174
- 611523 string characters out of 5816070
- 1873769 words of memory out of 5000000
- 49692 multiletter control sequences out of 15000+600000
+ 30093 strings out of 477174
+ 614495 string characters out of 5816070
+ 1877769 words of memory out of 5000000
+ 49738 multiletter control sequences out of 15000+600000
  525095 words of font info for 79 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
  101i,14n,107p,393b,883s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1371,10 +1452,10 @@ fonts/cm/cmssi8.pfb></usr/local/texlive/2023basic/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023basic/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023basic/texmf-dist/fonts/type1
 /public/amsfonts/symbols/msam10.pfb>
-Output written on doc.pdf (53 pages, 240223 bytes).
+Output written on doc.pdf (74 pages, 300607 bytes).
 PDF statistics:
- 1458 PDF objects out of 1728 (max. 8388607)
- 1358 compressed objects within 14 object streams
- 107 named destinations out of 1000 (max. 500000)
+ 2002 PDF objects out of 2073 (max. 8388607)
+ 1876 compressed objects within 19 object streams
+ 149 named destinations out of 1000 (max. 500000)
  43 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,4 +1,4 @@
-\newcommand{\letitle}{Stage L3}
+\newcommand{\letitle}{Stage L3 : Formalisation de théorie des jeux en Coq}
 \newcommand{\leauthor}{Ulysse Durand\\encadré par\\Etienne Miquey\\et\\Pierre Clairambault}
 
 \documentclass{beamer}
@@ -73,9 +73,14 @@
 \begin{frame}
 \frametitle{Sommaire}
 
+Théorie des jeux, utile pour la théorie de la programmation
+
+Nous allons la formaliser (catégorie)
+\pause
 \begin{itemize}
 \item Définitions ensemblistes
-\item Définitions Coq et preuves
+\item Définitions Coq (apport perso)
+\item Conclusion
 \end{itemize}
 \end{frame}
 
@@ -119,9 +124,9 @@ Voici quelques configurations :
 \begin{itemize}
 \item $\{1,3\}$
 \pause
-\item $\{1,4,5\}$
+\item $\{1,2,4,5\}$
 \pause
-\item $\{1,2,3,4,6\}$
+\item $\{1,2,3,6\}$
 \end{itemize}
 
 \end{frame}
@@ -162,7 +167,7 @@ voici quelques parties
 \begin{itemize}
 \item $1236$
 \pause
-\item $1345$
+\item $1245$
 \end{itemize}
 \end{frame}
 
@@ -183,6 +188,13 @@ On l'appelera $(\mathbb{B} \rightarrow \mathbb{B})$
 Voici le jeu $J_0 \otimes (\mathbb{B} \rightarrow \mathbb{B})$
 
 \tikzfig{ex1jeu} \tikzfig{ex2}
+\pause
+
+Une partie sur ce jeu pourrait être $1 2 q_1 3 6 tt_1$
+
+On peut la restreindre à un des jeux
+
+$1 2 q_1 3 6 tt_1 \upharpoonright J_0 = 1 2 3 6$
 \end{frame}
 
 
@@ -206,6 +218,20 @@ Voici le jeu $J_0\vdash (\mathbb{B} \rightarrow \mathbb{B})$
 \end{frame}
 
 \begin{frame}
+\frametitle{Exemples de stratégies sur $J_0\vdash  (\mathbb{B} \rightarrow \mathbb{B})$}
+
+\tikzfig{ex1dual} \tikzfig{ex2}
+
+Voici quelques stratégies :
+\begin{itemize}
+\item $\{\epsilon, q_1 1, q_1 1 2 6, q_1 1 3 q_2\}$
+\pause
+\item $\{\epsilon,q_1 1, q_1 1 3 tt_1\}$
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
 \frametitle{Stratégies}
 
 
@@ -218,29 +244,6 @@ Une stratégie sur le jeu $A$ est $\sigma \subset \mathcal{P}(A)$ qui est
 Le joueur a au plus un choix de coup pour rester dans la stratégie
 
 \end{itemize}
-
-\end{frame}
-
-\begin{frame}
-\frametitle{Exemples de stratégies sur $J_0\vdash  (\mathbb{B} \rightarrow \mathbb{B})$}
-
-\tikzfig{ex1dual} \tikzfig{ex2}
-
-Voici quelques stratégies :
-\begin{itemize}
-\item $\{\epsilon,12,45, q_1 q_2\}$
-\pause
-\item $\{\epsilon,13,45\}$
-\pause
-\item $\{\epsilon,12,q_1 q_2\}$
-\end{itemize}
-
-\pause
-
-Elles sont sur un jeu tenseur, on peut les restreindre à un jeu :
-
-$\{\epsilon,12,45, q_1 q_2\} \upharpoonright (\mathbb{B} \rightarrow \mathbb{B}) = \{\epsilon, q_1 q_2\}$
-
 
 \end{frame}
 
@@ -385,31 +388,44 @@ $\frac{\text{min}(a^+,G) \qquad s : \text{OPlay}_{G\backslash a}}
 
 
 Pour construire $1236 : \text{OPlay}_{J_0}$
+
+\only<1->{
 \begin{prooftree}
 \hypo{}
 \infer1{
     \epsilon : \text{OPlay}_{J_0\backslash 1,2,3,6}
 }
+\only<2->{
 \hypo{\text{min}(6,J_0 \backslash 1,2,3)}
 \infer2{
     6 : \text{PPlay}_{J_0 \backslash 1,2,3}
 }
+\only<3->{
 \hypo{\text{min}(3,J_0 \backslash 1,2)}
 \infer2{
     36 : \text{OPlay}_{J_0 \backslash 1,2}
 }
+}
+}
 \end{prooftree}
+}
+\only<3->{
 \begin{prooftree}
 \hypo{36 : \text{OPlay}_{J_0 \backslash 1,2}}
+\only<4->{
 \hypo{\text{min}(2,J_0 \backslash 1)}
 \infer2{
     236:\text{PPlay}_{J_0 \backslash 1}
 }
+\only<5->{
 \hypo{\qquad \text{min}(1,J_0)}
 \infer2{
     1236 : \text{OPlay}_{J_0}
 }
+}
+}
 \end{prooftree}
+}
 \tikzfig{ex1proof}
 
 \end{frame}
@@ -417,7 +433,117 @@ Pour construire $1236 : \text{OPlay}_{J_0}$
 \begin{frame}
 \frametitle{Cohérence entre parties (déterminisme de stratégie)}
 
+$\frac{s:\text{Oplay}}{\text{Coh}^-(\epsilon,s)} \text{Coh}^-_{\epsilon,l} \qquad
+ \frac{s:\text{OPlay}}{\text{Coh}^-(s,\epsilon)} \text{Coh}^-_{\epsilon,r}$
 
+$\frac{a^- \neq a'^- \qquad s:\text{PPlay} \qquad s':\text{PPlay}}
+{\text{Coh}^-(a^-s, a'^- s')} \text{Coh}^-_{\neq i}$
+
+$\frac{s : \text{OPlay} \qquad s':\text{OPlay} \qquad \text{Coh}^-(s,s')}
+{\text{Coh}^+(a^+s, a^+s')} \text{Coh}^+_i$
+
+$\frac{s : \text{PPlay} \qquad s':\text{PPlay} \qquad \text{Coh}^+(s,s')}
+{\text{Coh}^-(a^-s, a^-s')} \text{Coh}^-_i$
+\pause
+
+On prouve que ces deux propriétés sont équivalentes :
+\begin{itemize}
+\item Clos par préfixe et $\forall s, s' \in \sigma, \text{Coh}^-(s, s')$
+\item Clos par préfixe et déterministe
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Définition inductive d'interactions}
+
+Une interaction, un état (OOO,POP ou OPP), $u\upharpoonright (A,B), u \upharpoonright (B,C), u \upharpoonright (A,C)$
+\resizebox{\textwidth}{!}{
+\tikzfig{ex2} \tikzfig{ex1jeu} \tikzfig{ex1jeu}
+}
+
+\resizebox{0.5 \textheight}{!}{\tikzfig{diagpolbis}}
+Pour $4_d 1_m q_1 tt_1 3_m 5_d$
+
+\only<2>{$\epsilon : OOO$}
+\only<3>{$5_d : OPP$}
+\only<4>{$3_m 5_d : POP$}
+\only<5>{$tt_1 3_m 5_d : OOO$}
+\only<6>{$q_1 tt_1 3_m 5_d : POP$}
+\only<7>{$1_m q_1 tt_1 3_m 5_d : OPP$}
+\only<8>{$4_d 1_m q_1 tt_1 3_m 5_d : OOO$}
+\end{frame}
+
+\begin{frame}
+\frametitle{Définition inductive d'interactions}
+
+
+
+$\frac{}{\epsilon : OOOInt} OOO_{\epsilon}$
+
+$\frac{s : POPInt \qquad a^+ : A}{a^+ s : OOOInt} aPOP \qquad
+ \frac{s : OPPInt \qquad c^- : C}{c^- s : OOOInt} cOPP$
+
+$\frac{s : OPPInt \qquad b^+ : B}{b^+ s : POPInt} bOPP \qquad
+ \frac{s : OOOInt \qquad a^- : A}{a^- s : POPInt} aOOO$
+
+$\frac{s : OOOInt \qquad c^+ : C}{c^+ s : OPPInt} cOOO \qquad
+ \frac{s : POPInt \qquad b^- : B}{b^- s : OPPInt} bPOP$
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Stratégies résiduelles}
+
+Pour la stratégie $\sigma = \{\epsilon, q_1 1, q_1 1 2 6, q_1 1 3 q_2\}$ sur $J_0 \vdash (\mathbb{B} \rightarrow \mathbb{B})$
+
+\resizebox{0.5\textheight}{!}{
+\tikzfig{ex1dual} \tikzfig{ex2}
+}
+
+On a $\sigma \backslash q_1 = \{1, 1 2 6, 1 3 q_2\}$ sur $J_0 \vdash (\mathbb{B} \rightarrow \mathbb{B})\backslash q_1$
+
+\resizebox{0.5\textheight}{!}{
+\tikzfig{ex1dual} \tikzfig{ex2resq1}
+}
+
+$s \in \sigma \backslash a \iff as \in \sigma$
+\pause
+On construit des OStrategy et PStrategy
+\end{frame}
+
+\begin{frame}
+\frametitle{Conclusion : Ce qui a été fait}
+
+Construire la stratégie composée
+\pause
+
+Preuve que c'est bien une stratégie.
+\pause
+
+Pour les preuves, principe d'induction sur les structures inductives mutuelles.
+\end{frame}
+
+\begin{frame}
+\frametitle{Conclusion : Ce qui reste à faire}
+
+\begin{itemize}
+\item Sanity Check
+\pause
+\item Associativité de la composition
+\pause
+\item Construction de Copycat
+\pause
+\item Preuve que Copycat est neutre
+\end{itemize}
+\pause
+Définitions inductives efficaces pour les preuves, plein d'espoir.
+\end{frame}
+
+\begin{frame}
+\frametitle{FIN}
+
+Merci d'avoir écouté
 \end{frame}
 
 \end{document}

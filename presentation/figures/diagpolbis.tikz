@@ -1,0 +1,15 @@
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=carre] (0) at (0, 3) {POP};
+		\node [style=carre] (1) at (0, 0) {OOO};
+		\node [style=carre] (2) at (0, -3) {OPP};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw [style=fleche, bend left] (1) to node[left]{$a^-$} (0);
+		\draw [style=fleche, bend left] (2) to node[left]{$c^-$} (1);
+		\draw [style=fleche, bend left, looseness=1.25] (0) to node[right]{$a^+$} (1);
+		\draw [style=fleche, bend left] (1) to node[right]{$c^+$} (2);
+		\draw [style=fleche, bend left=90, looseness=1.25] (2) to node[left]{$b^+$} (0);
+		\draw [style=fleche, bend left=90, looseness=1.25] (0) to node[right]{$b^-$} (2);
+	\end{pgfonlayer}
+\end{tikzpicture}
