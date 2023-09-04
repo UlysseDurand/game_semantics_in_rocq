@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.21)  1 SEP 2023 10:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.21)  4 SEP 2023 09:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1307,7 +1307,7 @@ LaTeX Font Info:    Trying to load font information for U+bbold on input line 1
 ] [44
 
 ]
-(../figures/ex1jeu.tikz) (../figures/ex1dual.tikz) [45
+(../figures/ex1dual.tikz) (../figures/ex1jeu.tikz) [45
 
 ] (../figures/ex1jeu.tikz) (../figures/ex1resid.tikz) [46
 
@@ -1452,7 +1452,7 @@ fonts/cm/cmssi8.pfb></usr/local/texlive/2023basic/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023basic/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023basic/texmf-dist/fonts/type1
 /public/amsfonts/symbols/msam10.pfb>
-Output written on doc.pdf (74 pages, 300607 bytes).
+Output written on doc.pdf (74 pages, 300670 bytes).
 PDF statistics:
  2002 PDF objects out of 2073 (max. 8388607)
  1876 compressed objects within 19 object streams

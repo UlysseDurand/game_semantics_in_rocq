@@ -2,10 +2,10 @@
 	\begin{pgfonlayer}{nodelayer}
 		\node [style=none] (1) at (0, 4) {$1^-$};
 		\node [style=none] (2) at (-2, 2) {$2^+$};
-		\node [style=none] (3) at (2, 2) {$3^+$};
+		\node [style=none] (3) at (2, 2) {$3^-$};
 		\node [style=none] (4) at (6, 2) {$4^-$};
 		\node [style=none] (5) at (6, 0) {$5^+$};
-		\node [style=none] (6) at (0, 0) {$6^-$};
+		\node [style=none] (6) at (0, 0) {$6^+$};
 	\end{pgfonlayer}
 	\begin{pgfonlayer}{edgelayer}
 		\draw [style=fleche] (1) to (2);
