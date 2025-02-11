@@ -1,6 +1,6 @@
 # Stage de L3
 
-Avec Pierre Clairambault et Etienne Miquey entre le LIS et l'I2M.
+Avec Pierre Clairambault et Etienne Miquey entre le LIS et l'I2M entre juin et juillet 2023.
 
 # Compilation du projet
 
