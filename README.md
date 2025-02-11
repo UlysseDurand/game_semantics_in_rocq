@@ -1,6 +1,14 @@
-# Stage de L3
+# L3 internship
 
-Avec Pierre Clairambault et Etienne Miquey entre le LIS et l'I2M entre juin et juillet 2023.
+With Pierre Clairambault and Etienne Miquey in the LIS and I2M in Luminy from easly june to mid july 2023.
+
+This internship was about formalizing and proving elements of Etienne Miquey's game semantics theory.
+
+You can find the Coq documentation [here](https://ulysse_durand.gitlab.io/game_semantics_in_coq/)
+
+You can find the report [here](https://gitlab.com/ulysse_durand/crypto_in_spark/-/blob/main/Report/out.pdf?ref_type=heads)
+
+You can find the slides of the presentation [here](https://gitlab.com/ulysse_durand/game_semantics_in_coq/-/blob/main/presentation/doc.pdf?ref_type=heads)
 
 ## Rapport de stage
 
@@ -19,6 +27,8 @@ Pour compiler le projet, il faut aller dans **codecoq** et executer `make`.
 
 Pour un contenu bien plus détaillé des fichiers coq, une fois le fichier 
 compilé, il faut se référer à **codecoq/html/toc.html**
+
+ou https://ulysse_durand.gitlab.io/game_semantics_in_coq/
 
 Sinon voici la structure dans les grandes lignes du dépot git :
 
