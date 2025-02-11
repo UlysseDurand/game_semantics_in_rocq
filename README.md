@@ -2,6 +2,15 @@
 
 Avec Pierre Clairambault et Etienne Miquey entre le LIS et l'I2M entre juin et juillet 2023.
 
+## Rapport de stage
+
+Le rapport peut être trouvé [ici](https://gitlab.com/ulysse_durand/crypto_in_spark/-/blob/main/Report/out.pdf?ref_type=heads)
+
+## Soutenance orale
+
+Les slides peuvent être trouvées [ici](https://gitlab.com/ulysse_durand/game_semantics_in_coq/-/blob/main/presentation/doc.pdf?ref_type=heads)
+
+
 # Compilation du projet
 
 Pour compiler le projet, il faut aller dans **codecoq** et executer `make`.
@@ -61,9 +70,3 @@ que les définitions utilisées correspondent bien aux définitions formelles.
 - tests/test.v : Ce fichier permet de tester les définitions et théorèmes
 précédents sur un jeu test concret.
   
-## Dossier rapport
-
-
-## Dossier presentation
-
-Aucune consigne pour le moment
